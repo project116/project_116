@@ -1,5 +1,5 @@
 //
-//  ViewController.h
+//  MainViewController.h
 //  116
 //
 //  Created by baidu on 14/12/23.
@@ -8,8 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ViewController : UIViewController
-
+@interface MainViewController : UIViewController<UIScrollViewDelegate>
 
 @end
-
