@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6254" systemVersion="14C109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="1wS-tY-gzb">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6254" systemVersion="14A389" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="1wS-tY-gzb">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
@@ -151,13 +151,97 @@
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="about_logo.png" translatesAutoresizingMaskIntoConstraints="NO" id="9Zk-SX-jsi">
+                                <rect key="frame" x="130" y="72" width="340" height="340"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="340" id="ASI-R4-xUb"/>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="340" id="X8V-qU-EmQ"/>
+                                    <constraint firstAttribute="width" constant="340" id="gjL-qW-p7v"/>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="340" id="ihW-yp-sea"/>
+                                </constraints>
+                            </imageView>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="eM4-LE-Ma9">
+                                <rect key="frame" x="16" y="412" width="568" height="188"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="一步之遥 1.0" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nvD-rf-BF2">
+                                        <rect key="frame" x="227" y="40" width="113.5" height="22.5"/>
+                                        <fontDescription key="fontDescription" name="ArialMT" family="Arial" pointSize="20"/>
+                                        <color key="textColor" red="0.5607843137254902" green="0.5607843137254902" blue="0.58431372549019611" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <color key="highlightedColor" red="0.5607843137254902" green="0.5607843137254902" blue="0.58431372549019611" alpha="1" colorSpace="calibratedRGB"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="制作团队" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Rb9-bc-wd2">
+                                        <rect key="frame" x="174" y="79" width="220" height="31"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="31" id="CYl-Np-MPe"/>
+                                            <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="220" id="r3Q-uP-R6l"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="LaoSangamMN" family="Lao Sangam MN" pointSize="36"/>
+                                        <color key="textColor" red="0.37254901960784315" green="0.40000000000000002" blue="0.41960784313725491" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="设计" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dzM-Fd-eL6">
+                                        <rect key="frame" x="254" y="158" width="60" height="39"/>
+                                        <fontDescription key="fontDescription" name="LaoSangamMN" family="Lao Sangam MN" pointSize="30"/>
+                                        <color key="textColor" red="0.37254901960784315" green="0.40000000000000002" blue="0.41960784313725491" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <view contentMode="center" translatesAutoresizingMaskIntoConstraints="NO" id="Alj-8P-uo5">
+                                        <rect key="frame" x="0.0" y="217" width="568" height="300"/>
+                                        <color key="backgroundColor" name="alternateSelectedControlColor" catalog="System" colorSpace="catalog"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="300" id="CAW-PD-yo2"/>
+                                        </constraints>
+                                    </view>
+                                </subviews>
+                                <color key="backgroundColor" red="0.65583372699999998" green="0.99952651520000002" blue="0.23471036880000001" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstItem="Rb9-bc-wd2" firstAttribute="top" secondItem="nvD-rf-BF2" secondAttribute="bottom" constant="16.5" id="2g7-6w-r9u"/>
+                                    <constraint firstItem="dzM-Fd-eL6" firstAttribute="top" secondItem="Rb9-bc-wd2" secondAttribute="bottom" constant="50" id="5yt-C1-hdq"/>
+                                    <constraint firstAttribute="centerX" secondItem="nvD-rf-BF2" secondAttribute="centerX" id="75R-dI-WIP"/>
+                                    <constraint firstAttribute="trailing" secondItem="Alj-8P-uo5" secondAttribute="trailing" id="7r1-ag-6zt"/>
+                                    <constraint firstItem="dzM-Fd-eL6" firstAttribute="bottom" secondItem="Alj-8P-uo5" secondAttribute="top" constant="-20" id="Ajb-aK-TGu"/>
+                                    <constraint firstAttribute="centerX" secondItem="dzM-Fd-eL6" secondAttribute="centerX" id="EiD-dd-y1q"/>
+                                    <constraint firstAttribute="centerX" secondItem="Rb9-bc-wd2" secondAttribute="centerX" id="I9Q-S7-jsZ"/>
+                                    <constraint firstItem="dzM-Fd-eL6" firstAttribute="bottom" secondItem="Alj-8P-uo5" secondAttribute="top" constant="-20" id="ReD-Sp-BrD"/>
+                                    <constraint firstItem="Rb9-bc-wd2" firstAttribute="top" secondItem="dzM-Fd-eL6" secondAttribute="bottom" constant="-50" id="Sxq-MF-d9l"/>
+                                    <constraint firstAttribute="centerX" secondItem="Alj-8P-uo5" secondAttribute="centerX" id="jTB-pq-r0j"/>
+                                    <constraint firstItem="nvD-rf-BF2" firstAttribute="top" secondItem="eM4-LE-Ma9" secondAttribute="top" constant="40" id="k7n-zp-r0X"/>
+                                    <constraint firstItem="Alj-8P-uo5" firstAttribute="leading" secondItem="eM4-LE-Ma9" secondAttribute="leading" id="mSW-NZ-KHX"/>
+                                    <constraint firstItem="Rb9-bc-wd2" firstAttribute="top" secondItem="nvD-rf-BF2" secondAttribute="bottom" constant="15" id="sBQ-X3-Fwh"/>
+                                </constraints>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="2g7-6w-r9u"/>
+                                        <exclude reference="Sxq-MF-d9l"/>
+                                        <exclude reference="Ajb-aK-TGu"/>
+                                    </mask>
+                                </variation>
+                            </scrollView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="eM4-LE-Ma9" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="1FN-hO-ucD"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="eM4-LE-Ma9" secondAttribute="trailing" id="4hN-J4-5eK"/>
+                            <constraint firstAttribute="centerX" secondItem="9Zk-SX-jsi" secondAttribute="centerX" id="5f4-e1-GkY"/>
+                            <constraint firstItem="eM4-LE-Ma9" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" constant="412" id="CWr-Lj-kJE"/>
+                            <constraint firstItem="9Zk-SX-jsi" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="8" id="W3q-fj-BJU"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="eM4-LE-Ma9" secondAttribute="bottom" id="pVw-jB-ABI"/>
+                            <constraint firstAttribute="centerX" secondItem="9Zk-SX-jsi" secondAttribute="centerX" id="uxD-ZT-jPK"/>
+                        </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="关于" id="mWl-BD-k9p"/>
+                    <navigationItem key="navigationItem" title="关于" id="OeA-8e-ldS"/>
+                    <connections>
+                        <outlet property="designMemberView" destination="Alj-8P-uo5" id="RQc-Fe-j4a"/>
+                        <outlet property="designTeam" destination="dzM-Fd-eL6" id="IU9-A8-R8y"/>
+                        <outlet property="projectName" destination="nvD-rf-BF2" id="bXt-vP-3LS"/>
+                        <outlet property="scrollView" destination="eM4-LE-Ma9" id="3Wk-yO-LyO"/>
+                        <outlet property="teamAuthor" destination="Rb9-bc-wd2" id="5IK-RD-0CD"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="884" y="-26"/>
+            <point key="canvasLocation" x="962" y="-26"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="fpc-ZP-6Vv">
@@ -179,4 +263,7 @@
             <point key="canvasLocation" x="1654" y="-762"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="about_logo.png" width="420" height="420"/>
+    </resources>
 </document>

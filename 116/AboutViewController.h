@@ -9,5 +9,13 @@
 #import <UIKit/UIKit.h>
 
 @interface AboutViewController : UIViewController
+@property (weak, nonatomic) IBOutlet UILabel *projectName;
 
+@property (weak, nonatomic) IBOutlet UILabel *teamAuthor;
+
+@property (weak, nonatomic) IBOutlet UILabel *designTeam;
+
+@property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
+
+@property (weak, nonatomic) IBOutlet UIView *designMemberView;
 @end
