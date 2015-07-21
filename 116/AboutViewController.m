@@ -55,44 +55,53 @@
     return result;
 }
 
-- (void)initDesignTeam{
+- (void)initDesignTeam {
     NSArray *designTeam = [[NSArray alloc]initWithObjects:@"Cczhang", @"Emmadai", @"Estherzhang", @"Lillianli", @"Sinkinwang", @"Vigarwang", nil];
+    
+    /*
+    translate autoResizing to constraint for constraint-based layout system.否则虽然setFrame能成功改变frame，
+     但也只是改变了值，显示始终是原先storyboard中配置的值。
+     */
+    [[self designMemberView] setTranslatesAutoresizingMaskIntoConstraints:YES];
     
     NSUInteger calculator = 0;
     NSUInteger defaultVerticalSpace = 7;
-    NSUInteger firstVerticalSpace = 20;
-    NSUInteger rowHeight = 0;
+    NSUInteger firstVerticalSpace = 0;
+    NSUInteger designMemberViewActualHeight = 0;
     
-    [[self designMemberView] setTranslatesAutoresizingMaskIntoConstraints:NO];
-    
-    UIView *previousSibling = nil;
+    UIView *previousSibling = [self designMemberView];
     for (NSString* name in designTeam) {
         UILabel *newMember = [self createPersonLabel:name :previousSibling :20];
         [[self designMemberView] addSubview:newMember];
-        rowHeight = newMember.bounds.size.height;
         
         CGFloat verticalSpace = calculator == 0 ? firstVerticalSpace:defaultVerticalSpace;
+        NSLayoutAttribute attr = calculator == 0 ? NSLayoutAttributeTop : NSLayoutAttributeBottom;
         
         NSLayoutConstraint *constraintTop =
-            [NSLayoutConstraint constraintWithItem:newMember attribute:NSLayoutAttributeTop relatedBy:NSLayoutRelationEqual toItem:previousSibling attribute:NSLayoutAttributeBottom multiplier:1.0f constant:0.f];
+        [NSLayoutConstraint constraintWithItem:newMember attribute:NSLayoutAttributeTop relatedBy:NSLayoutRelationEqual toItem:previousSibling attribute:attr multiplier:1.0f constant:verticalSpace];
         
         NSLayoutConstraint *constraintCenter =
         [NSLayoutConstraint constraintWithItem:newMember attribute:NSLayoutAttributeCenterX relatedBy:NSLayoutRelationEqual toItem:self.designMemberView attribute:NSLayoutAttributeCenterX multiplier:1.f constant:0.f];
-
+        
         /*any views involved must be either the receiving view itself, or a subview of the receiving view.*/
         [[self designMemberView]addConstraint:constraintTop];
         [[self designMemberView]addConstraint:constraintCenter];
         
         calculator++;
         
+        designMemberViewActualHeight += verticalSpace;
+        designMemberViewActualHeight += newMember.bounds.size.height;
+        
         previousSibling = newMember;
     }
     
-//    NSUInteger viewHeight = designTeam.count * rowHeight + (designTeam.count - 1) * defaultVerticalSpace;
-//    CGRect rect = [[self designMemberView]frame];
-//    rect.size.height = 0;//viewHeight;
-//    [[self designMemberView] setFrame:rect];
+    // adjust designMemberView height.
+    CGRect rect = [self designMemberView].frame;
+    rect.size.height = designMemberViewActualHeight;
+    
+    [[self designMemberView] setFrame:rect];
 }
+
 
 - (void)initDevTeam {
     NSArray *designTeam = [[NSArray alloc]initWithObjects:@"Jacktan", @"Jayguo", @"Jimzou", nil];
@@ -141,13 +150,13 @@
     [self initControlFont];
     [self initDesignTeam];
     //[self initDevTeam];
-    [[self scrollView]setScrollEnabled:true];
+    /*[[self scrollView]setScrollEnabled:true];
     CGSize size = [[self view]frame].size;
     size.height -= 410;
     [[self scrollView]setContentSize:size];
-    CGRect rectOfScrollFrame = [[self view]window].frame;
+    CGRect rectOfScrollFrame = [[self view]window].bounds;
     rectOfScrollFrame.origin.y += 410;
-    [[self scrollView]setFrame:rectOfScrollFrame];
+    [[self scrollView]setFrame:rectOfScrollFrame];*/
 }
 
 - (void)didReceiveMemoryWarning {
