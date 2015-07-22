@@ -15,10 +15,18 @@
 
 @property (weak, nonatomic) IBOutlet UILabel *designTeam;
 
+@property (weak, nonatomic) IBOutlet UILabel *devTeam;
+
+@property (weak, nonatomic) IBOutlet UILabel *lblPublisher;
+
 @property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
 
 @property (weak, nonatomic) IBOutlet UIView *scrollContentView;
 
+@property (weak, nonatomic) IBOutlet UIImageView *img_sep_design_tech;
+
 @property (weak, nonatomic) IBOutlet UIView *designMemberView;
+
+@property (weak, nonatomic) IBOutlet UIView *devMemberView;
 
 @end

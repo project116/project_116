@@ -27,7 +27,11 @@
     
     self.teamAuthor.font = [UIFont fontWithName:@"fzsxslkjw--gb1-0" size:36];
     
-    self.designTeam.font = [UIFont fontWithName:@"fzsxslkjw--gb1-0" size:30];
+    UIFont* font4Team = [UIFont fontWithName:@"fzsxslkjw--gb1-0" size:30];
+    
+    self.designTeam.font = font4Team;
+    self.devTeam.font = font4Team;
+    self.lblPublisher.font = font4Team;
 }
 
 - (UILabel*) createPersonLabel:(NSString*)_name :(UIView*)_previouseSibling :(CGFloat)_verticalSpace {
@@ -42,13 +46,14 @@
         // 必须制定，默认是Autoresizing
         [result setTranslatesAutoresizingMaskIntoConstraints:NO];
         
-        UIFont *font = [UIFont fontWithName:@"Arial" size:26.0];
+        UIFont *font = [UIFont fontWithName:@"Palatino-Roman" size:26.0];
         CGSize size = [_name sizeWithFont:font constrainedToSize:CGSizeMake(175.0f, 2000.0f) lineBreakMode:UILineBreakModeWordWrap];
         
-        CGRect rect = result.frame;
         [result setFont:font];
+        
+        CGRect rect = result.bounds;
         rect.size = size;
-        [result setFrame:rect];
+        [result setBounds:rect];
         
     }
     
@@ -95,43 +100,67 @@
         previousSibling = newMember;
     }
     
+    /*
+     Don't make any sence.
+    */
+    /*
+    NSLayoutConstraint *constraint =
+    [NSLayoutConstraint constraintWithItem:self.designMemberView attribute:NSLayoutAttributeBottom relatedBy:NSLayoutRelationEqual toItem:previousSibling attribute:NSLayoutAttributeBottom multiplier:1.f constant:7.f];
+    [[self designMemberView]addConstraint:constraint];
+    */
+
     // adjust designMemberView height.
     CGRect rect = [self designMemberView].frame;
     rect.size.height = designMemberViewActualHeight;
-    
     [[self designMemberView] setFrame:rect];
 }
 
 
 - (void)initDevTeam {
-    NSArray *designTeam = [[NSArray alloc]initWithObjects:@"Jacktan", @"Jayguo", @"Jimzou", nil];
+    NSArray *devTeam = [[NSArray alloc]initWithObjects:@"Jacktan", @"Jayguo", @"Jimzou", nil];
+    
+    /*
+     translate autoResizing to constraint for constraint-based layout system.否则虽然setFrame能成功改变frame，
+     但也只是改变了值，显示始终是原先storyboard中配置的值。
+     */
+    //[[self devMemberView] setTranslatesAutoresizingMaskIntoConstraints:YES];
     
     NSUInteger calculator = 0;
     NSUInteger defaultVerticalSpace = 7;
-    NSUInteger firstVerticalSpace = 20;
+    NSUInteger firstVerticalSpace = 0;
+    NSUInteger devMemberViewActualHeight = 0;
     
-    UIView *previousSibling = [self designTeam];
-    for (NSString* name in designTeam) {
+    UIView *previousSibling = [self devMemberView];
+    for (NSString* name in devTeam) {
         UILabel *newMember = [self createPersonLabel:name :previousSibling :20];
-        [[self scrollView] addSubview:newMember];
+        [[self devMemberView] addSubview:newMember];
         
         CGFloat verticalSpace = calculator == 0 ? firstVerticalSpace:defaultVerticalSpace;
+        NSLayoutAttribute attr = calculator == 0 ? NSLayoutAttributeTop : NSLayoutAttributeBottom;
         
         NSLayoutConstraint *constraintTop =
-        [NSLayoutConstraint constraintWithItem:newMember attribute:NSLayoutAttributeTop relatedBy:NSLayoutRelationEqual toItem:previousSibling attribute:NSLayoutAttributeBottom multiplier:1.0f constant:verticalSpace];
+        [NSLayoutConstraint constraintWithItem:newMember attribute:NSLayoutAttributeTop relatedBy:NSLayoutRelationEqual toItem:previousSibling attribute:attr multiplier:1.0f constant:verticalSpace];
         
         NSLayoutConstraint *constraintCenter =
-        [NSLayoutConstraint constraintWithItem:newMember attribute:NSLayoutAttributeCenterX relatedBy:NSLayoutRelationEqual toItem:self.scrollView attribute:NSLayoutAttributeCenterX multiplier:1.f constant:0.f];
+        [NSLayoutConstraint constraintWithItem:newMember attribute:NSLayoutAttributeCenterX relatedBy:NSLayoutRelationEqual toItem:self.devMemberView attribute:NSLayoutAttributeCenterX multiplier:1.f constant:0.f];
         
         /*any views involved must be either the receiving view itself, or a subview of the receiving view.*/
-        [[self scrollView]addConstraint:constraintTop];
-        [[self scrollView]addConstraint:constraintCenter];
+        [[self devMemberView]addConstraint:constraintTop];
+        [[self devMemberView]addConstraint:constraintCenter];
         
         calculator++;
         
+        devMemberViewActualHeight += verticalSpace;
+        devMemberViewActualHeight += newMember.bounds.size.height;
+        
         previousSibling = newMember;
     }
-
+    
+    [[self devMemberView] setTranslatesAutoresizingMaskIntoConstraints:YES];
+    // adjust devMemberView height.
+    CGRect rect = [self devMemberView].frame;
+    rect.size.height = devMemberViewActualHeight;
+    [[self devMemberView] setFrame:rect];
 }
 
 - (void)viewDidLoad {
@@ -149,14 +178,7 @@
     
     [self initControlFont];
     [self initDesignTeam];
-    //[self initDevTeam];
-    /*[[self scrollView]setScrollEnabled:true];
-    CGSize size = [[self view]frame].size;
-    size.height -= 410;
-    [[self scrollView]setContentSize:size];
-    CGRect rectOfScrollFrame = [[self view]window].bounds;
-    rectOfScrollFrame.origin.y += 410;
-    [[self scrollView]setFrame:rectOfScrollFrame];*/
+    [self initDevTeam];
 }
 
 - (void)didReceiveMemoryWarning {
