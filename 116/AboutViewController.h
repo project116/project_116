@@ -29,4 +29,8 @@
 
 @property (weak, nonatomic) IBOutlet UIView *devMemberView;
 
+@property (weak, nonatomic) IBOutlet UIImageView *imgStudio;
+
+@property (weak, nonatomic) IBOutlet UIImageView *img_dev_studio;
+
 @end

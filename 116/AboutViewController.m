@@ -10,16 +10,10 @@
 
 
 @interface AboutViewController ()
-- (void)initDevTeam;
-- (void)initDesignTeam;
-- (UILabel*) createPersonLabel:(NSString*)_name :(UIView*)_previouseSibling :(CGFloat)_verticalSpace;
 @end
 
 
 @implementation AboutViewController
-
-
-
 
 
 - (void)initControlFont {
@@ -34,9 +28,10 @@
     self.lblPublisher.font = font4Team;
 }
 
-- (UILabel*) createPersonLabel:(NSString*)_name :(UIView*)_previouseSibling :(CGFloat)_verticalSpace {
+- (UILabel*) createPersonLabel:(NSString*)_name {
     UILabel* result = [[UILabel alloc]initWithFrame:CGRectMake(0, 0, 100, 21)];
     if (result) {
+        //[result setTranslatesAutoresizingMaskIntoConstraints:YES];
         [result setText:_name];
         [result setTextColor:[UIColor colorWithRed:0.56f green:0.56f blue:0.58f alpha:1.f]];
         [result setBackgroundColor:[UIColor clearColor]];
@@ -63,12 +58,6 @@
 - (void)initDesignTeam {
     NSArray *designTeam = [[NSArray alloc]initWithObjects:@"Cczhang", @"Emmadai", @"Estherzhang", @"Lillianli", @"Sinkinwang", @"Vigarwang", nil];
     
-    /*
-    translate autoResizing to constraint for constraint-based layout system.否则虽然setFrame能成功改变frame，
-     但也只是改变了值，显示始终是原先storyboard中配置的值。
-     */
-    [[self designMemberView] setTranslatesAutoresizingMaskIntoConstraints:YES];
-    
     NSUInteger calculator = 0;
     NSUInteger defaultVerticalSpace = 7;
     NSUInteger firstVerticalSpace = 0;
@@ -76,7 +65,7 @@
     
     UIView *previousSibling = [self designMemberView];
     for (NSString* name in designTeam) {
-        UILabel *newMember = [self createPersonLabel:name :previousSibling :20];
+        UILabel *newMember = [self createPersonLabel:name];
         [[self designMemberView] addSubview:newMember];
         
         CGFloat verticalSpace = calculator == 0 ? firstVerticalSpace:defaultVerticalSpace;
@@ -94,45 +83,33 @@
         
         calculator++;
         
-        designMemberViewActualHeight += verticalSpace;
-        designMemberViewActualHeight += newMember.bounds.size.height;
-        
         previousSibling = newMember;
     }
     
-    /*
-     Don't make any sence.
-    */
-    /*
-    NSLayoutConstraint *constraint =
-    [NSLayoutConstraint constraintWithItem:self.designMemberView attribute:NSLayoutAttributeBottom relatedBy:NSLayoutRelationEqual toItem:previousSibling attribute:NSLayoutAttributeBottom multiplier:1.f constant:7.f];
-    [[self designMemberView]addConstraint:constraint];
-    */
-
-    // adjust designMemberView height.
-    CGRect rect = [self designMemberView].frame;
-    rect.size.height = designMemberViewActualHeight;
-    [[self designMemberView] setFrame:rect];
+    NSLayoutConstraint *constraintBottomSpace =
+    [NSLayoutConstraint constraintWithItem:self.designMemberView attribute:NSLayoutAttributeBottom relatedBy:NSLayoutRelationEqual toItem: previousSibling attribute:NSLayoutAttributeBottom multiplier:1.f constant:0.f];
+    
+    [[self designMemberView] addConstraint:constraintBottomSpace];
+    
+    NSLayoutConstraint *constraintTopSpace =
+    [NSLayoutConstraint constraintWithItem:self.img_sep_design_tech attribute:NSLayoutAttributeTop relatedBy:NSLayoutRelationEqual toItem:self.designMemberView attribute:NSLayoutAttributeBottom multiplier:1.f constant:30.f];
+    
+    [[self scrollContentView] addConstraint:constraintTopSpace];
 }
 
-
 - (void)initDevTeam {
+    
     NSArray *devTeam = [[NSArray alloc]initWithObjects:@"Jacktan", @"Jayguo", @"Jimzou", nil];
     
-    /*
-     translate autoResizing to constraint for constraint-based layout system.否则虽然setFrame能成功改变frame，
-     但也只是改变了值，显示始终是原先storyboard中配置的值。
-     */
-    //[[self devMemberView] setTranslatesAutoresizingMaskIntoConstraints:YES];
-    
+
     NSUInteger calculator = 0;
     NSUInteger defaultVerticalSpace = 7;
     NSUInteger firstVerticalSpace = 0;
-    NSUInteger devMemberViewActualHeight = 0;
+    NSUInteger designMemberViewActualHeight = 0;
     
     UIView *previousSibling = [self devMemberView];
     for (NSString* name in devTeam) {
-        UILabel *newMember = [self createPersonLabel:name :previousSibling :20];
+        UILabel *newMember = [self createPersonLabel:name];
         [[self devMemberView] addSubview:newMember];
         
         CGFloat verticalSpace = calculator == 0 ? firstVerticalSpace:defaultVerticalSpace;
@@ -150,17 +127,38 @@
         
         calculator++;
         
-        devMemberViewActualHeight += verticalSpace;
-        devMemberViewActualHeight += newMember.bounds.size.height;
-        
         previousSibling = newMember;
     }
     
-    [[self devMemberView] setTranslatesAutoresizingMaskIntoConstraints:YES];
-    // adjust devMemberView height.
-    CGRect rect = [self devMemberView].frame;
-    rect.size.height = devMemberViewActualHeight;
-    [[self devMemberView] setFrame:rect];
+    NSLayoutConstraint *constraintBottomSpace =
+    [NSLayoutConstraint constraintWithItem:self.devMemberView attribute:NSLayoutAttributeBottom relatedBy:NSLayoutRelationEqual toItem: previousSibling attribute:NSLayoutAttributeBottom multiplier:1.f constant:0.f];
+    
+    [[self devMemberView] addConstraint:constraintBottomSpace];
+   
+    NSLayoutConstraint *constraintTopSpace =
+    [NSLayoutConstraint constraintWithItem:self.img_dev_studio attribute:NSLayoutAttributeTop relatedBy:NSLayoutRelationEqual toItem:self.devMemberView attribute:NSLayoutAttributeBottom multiplier:1.f constant:30.f];
+    
+    [[self scrollContentView] addConstraint:constraintTopSpace];
+  
+}
+
+- (void)initScrollView {
+    NSLayoutConstraint *leading =
+    [NSLayoutConstraint constraintWithItem:self.scrollContentView attribute:NSLayoutAttributeLeading relatedBy:NSLayoutRelationEqual toItem:self.scrollView attribute:NSLayoutAttributeLeading multiplier:1.f constant:0.f];
+    
+    NSLayoutConstraint *trailing =
+    [NSLayoutConstraint constraintWithItem:self.scrollContentView attribute:NSLayoutAttributeTrailing relatedBy:NSLayoutRelationEqual toItem:self.scrollView attribute:NSLayoutAttributeTrailing multiplier:1.f constant:0.f];
+    
+    NSLayoutConstraint *top =
+    [NSLayoutConstraint constraintWithItem:self.scrollContentView attribute:NSLayoutAttributeTop relatedBy:NSLayoutRelationEqual toItem:self.scrollView attribute:NSLayoutAttributeTop multiplier:1.f constant:0.f];
+    
+    NSLayoutConstraint *bottom =
+    [NSLayoutConstraint constraintWithItem:self.scrollContentView attribute:NSLayoutAttributeBottom relatedBy:NSLayoutRelationEqual toItem:self.scrollView attribute:NSLayoutAttributeBottom multiplier:1.f constant:0.f];
+    
+    [[self scrollView] addConstraint:leading];
+    [[self scrollView] addConstraint:trailing];
+    [[self scrollView] addConstraint:top];
+    [[self scrollView] addConstraint:bottom];
 }
 
 - (void)viewDidLoad {
@@ -176,9 +174,12 @@
         }
     }
     
+    [[self navigationController] setNavigationBarHidden:YES];
+    
     [self initControlFont];
     [self initDesignTeam];
     [self initDevTeam];
+    [self initScrollView];
 }
 
 - (void)didReceiveMemoryWarning {
