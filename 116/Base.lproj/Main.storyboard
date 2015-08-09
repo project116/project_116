@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6254" systemVersion="14A389" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="1wS-tY-gzb">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14C109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="1wS-tY-gzb">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
@@ -17,43 +17,44 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jSJ-dA-eUz">
-                                <rect key="frame" x="0.0" y="474" width="600" height="34"/>
-                                <state key="normal" title="开始选择">
+                            <view contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="X8a-qy-2TT" customClass="SMPageControl">
+                                <rect key="frame" x="150" y="430" width="300" height="36"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                            </view>
+                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jSJ-dA-eUz">
+                                <rect key="frame" x="259" y="490" width="83" height="110"/>
+                                <state key="normal" image="start-normal.png">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
                                     <segue destination="2Kb-nL-yVi" kind="custom" customClass="CustomPush" id="qGk-Xj-wah"/>
                                 </connections>
                             </button>
-                            <pageControl opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="3" translatesAutoresizingMaskIntoConstraints="NO" id="oEz-CD-kNM">
-                                <rect key="frame" x="0.0" y="409" width="600" height="37"/>
-                            </pageControl>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="oEz-CD-kNM" firstAttribute="top" secondItem="9pD-Ag-0Fs" secondAttribute="bottom" constant="325" id="1io-rw-W3l"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="oEz-CD-kNM" secondAttribute="trailing" constant="81" id="4DH-JC-kha"/>
+                            <constraint firstItem="X8a-qy-2TT" firstAttribute="leading" secondItem="HQi-Bb-suK" secondAttribute="leadingMargin" constant="134" id="4fs-sI-I6S"/>
                             <constraint firstItem="jSJ-dA-eUz" firstAttribute="leading" secondItem="HQi-Bb-suK" secondAttribute="leadingMargin" constant="116" id="ExR-vN-dRV"/>
-                            <constraint firstItem="oEz-CD-kNM" firstAttribute="leading" secondItem="HQi-Bb-suK" secondAttribute="leadingMargin" constant="82" id="JYi-f3-uwm"/>
                             <constraint firstAttribute="trailingMargin" secondItem="jSJ-dA-eUz" secondAttribute="trailing" constant="116" id="eFu-Ht-bZQ"/>
-                            <constraint firstItem="jSJ-dA-eUz" firstAttribute="top" secondItem="9pD-Ag-0Fs" secondAttribute="bottom" constant="410" id="nsk-Yt-DmG"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="X8a-qy-2TT" secondAttribute="trailing" constant="134" id="yrw-fn-LAx"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="BPW-IJ-OqV">
-                        <barButtonItem key="leftBarButtonItem" title="About" id="cUS-h7-srI">
+                        <barButtonItem key="leftBarButtonItem" image="list-normal.png" id="cUS-h7-srI">
+                            <color key="tintColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                             <connections>
                                 <segue destination="BYZ-38-t0r" kind="push" id="cQJ-dZ-FxN"/>
                             </connections>
                         </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" systemItem="organize" id="vYg-DY-b1T">
+                        <barButtonItem key="rightBarButtonItem" image="info-normal.png" id="vYg-DY-b1T">
+                            <color key="tintColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                             <connections>
                                 <segue destination="opT-ku-A6l" kind="push" id="L5D-RH-Jlz"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <outlet property="projectPageControl" destination="oEz-CD-kNM" id="jaj-by-kdm"/>
+                        <outlet property="projectPageControl" destination="X8a-qy-2TT" id="LWo-8x-Hfv"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="JzC-u8-kDa" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -168,7 +169,7 @@
                                     <view contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="JyT-03-ifT" userLabel="contentView">
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="一步之遥 1.0" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nvD-rf-BF2">
-                                                <rect key="frame" x="113" y="40" width="113.5" height="22.5"/>
+                                                <rect key="frame" x="113" y="40" width="114" height="23"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="22.5" id="Dlg-6A-JxM"/>
                                                     <constraint firstAttribute="width" constant="113.5" id="mGa-cO-Cs8"/>
@@ -372,5 +373,8 @@
         <image name="about_separator_line.png" width="100" height="1"/>
         <image name="about_studio.png" width="144" height="54"/>
         <image name="bg.png" width="320" height="568"/>
+        <image name="info-normal.png" width="24" height="24"/>
+        <image name="list-normal.png" width="24" height="24"/>
+        <image name="start-normal.png" width="83" height="110"/>
     </resources>
 </document>

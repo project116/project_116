@@ -48,6 +48,14 @@
 		E1A239861ABFEA38005A038A /* RippleModel.m in Sources */ = {isa = PBXBuildFile; fileRef = E1A239851ABFEA38005A038A /* RippleModel.m */; };
 		E1A2398E1ABFF5CE005A038A /* Shader.fsh in Resources */ = {isa = PBXBuildFile; fileRef = E1A2398C1ABFF5CE005A038A /* Shader.fsh */; };
 		E1A2398F1ABFF5CE005A038A /* Shader.vsh in Resources */ = {isa = PBXBuildFile; fileRef = E1A2398D1ABFF5CE005A038A /* Shader.vsh */; };
+		E1E4F3B61B77480B00C1FE7B /* bg@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E1E4F3AF1B77480B00C1FE7B /* bg@2x.png */; };
+		E1E4F3B71B77480B00C1FE7B /* dangqianxiangmu@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E1E4F3B01B77480B00C1FE7B /* dangqianxiangmu@2x.png */; };
+		E1E4F3B81B77480B00C1FE7B /* info-normal@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E1E4F3B11B77480B00C1FE7B /* info-normal@2x.png */; };
+		E1E4F3B91B77480B00C1FE7B /* list-normal@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E1E4F3B21B77480B00C1FE7B /* list-normal@2x.png */; };
+		E1E4F3BA1B77480B00C1FE7B /* start-normal@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E1E4F3B31B77480B00C1FE7B /* start-normal@2x.png */; };
+		E1E4F3BB1B77480B00C1FE7B /* xiangmu@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E1E4F3B41B77480B00C1FE7B /* xiangmu@2x.png */; };
+		E1E4F3BC1B77480B00C1FE7B /* yao-icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E1E4F3B51B77480B00C1FE7B /* yao-icon@2x.png */; };
+		E1E4F3BF1B7748C400C1FE7B /* SMPageControl.m in Sources */ = {isa = PBXBuildFile; fileRef = E1E4F3BE1B7748C400C1FE7B /* SMPageControl.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -130,6 +138,15 @@
 		E1A239851ABFEA38005A038A /* RippleModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RippleModel.m; sourceTree = "<group>"; };
 		E1A2398C1ABFF5CE005A038A /* Shader.fsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = Shader.fsh; sourceTree = "<group>"; };
 		E1A2398D1ABFF5CE005A038A /* Shader.vsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = Shader.vsh; sourceTree = "<group>"; };
+		E1E4F3AF1B77480B00C1FE7B /* bg@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bg@2x.png"; sourceTree = "<group>"; };
+		E1E4F3B01B77480B00C1FE7B /* dangqianxiangmu@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "dangqianxiangmu@2x.png"; sourceTree = "<group>"; };
+		E1E4F3B11B77480B00C1FE7B /* info-normal@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "info-normal@2x.png"; sourceTree = "<group>"; };
+		E1E4F3B21B77480B00C1FE7B /* list-normal@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "list-normal@2x.png"; sourceTree = "<group>"; };
+		E1E4F3B31B77480B00C1FE7B /* start-normal@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "start-normal@2x.png"; sourceTree = "<group>"; };
+		E1E4F3B41B77480B00C1FE7B /* xiangmu@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "xiangmu@2x.png"; sourceTree = "<group>"; };
+		E1E4F3B51B77480B00C1FE7B /* yao-icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "yao-icon@2x.png"; sourceTree = "<group>"; };
+		E1E4F3BD1B7748C400C1FE7B /* SMPageControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SMPageControl.h; sourceTree = "<group>"; };
+		E1E4F3BE1B7748C400C1FE7B /* SMPageControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SMPageControl.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -255,6 +272,13 @@
 		E13993451A4971F8008E3B56 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				E1E4F3AF1B77480B00C1FE7B /* bg@2x.png */,
+				E1E4F3B01B77480B00C1FE7B /* dangqianxiangmu@2x.png */,
+				E1E4F3B11B77480B00C1FE7B /* info-normal@2x.png */,
+				E1E4F3B21B77480B00C1FE7B /* list-normal@2x.png */,
+				E1E4F3B31B77480B00C1FE7B /* start-normal@2x.png */,
+				E1E4F3B41B77480B00C1FE7B /* xiangmu@2x.png */,
+				E1E4F3B51B77480B00C1FE7B /* yao-icon@2x.png */,
 				E13993461A4971F8008E3B56 /* Info.plist */,
 				E13993471A4971F8008E3B56 /* main.m */,
 			);
@@ -322,6 +346,8 @@
 		E13993751A498435008E3B56 /* CustomControls */ = {
 			isa = PBXGroup;
 			children = (
+				E1E4F3BD1B7748C400C1FE7B /* SMPageControl.h */,
+				E1E4F3BE1B7748C400C1FE7B /* SMPageControl.m */,
 				E13993761A4985BB008E3B56 /* UITableViewCell_ContainSwitcher.h */,
 				E13993771A4985BB008E3B56 /* UITableViewCell_ContainSwitcher.m */,
 				E13993791A498664008E3B56 /* UITableViewCell_ContainRemover.h */,
@@ -444,11 +470,18 @@
 			buildActionMask = 2147483647;
 			files = (
 				E13993511A4971F8008E3B56 /* Main.storyboard in Resources */,
+				E1E4F3B81B77480B00C1FE7B /* info-normal@2x.png in Resources */,
+				E1E4F3BA1B77480B00C1FE7B /* start-normal@2x.png in Resources */,
 				69BB19B91B5B8CBA0030C722 /* fzsxslkjw--gb1-0.ttf in Resources */,
 				69043E421B652FB400F85506 /* back-press@2x.png in Resources */,
+				E1E4F3B71B77480B00C1FE7B /* dangqianxiangmu@2x.png in Resources */,
+				E1E4F3B61B77480B00C1FE7B /* bg@2x.png in Resources */,
 				E1A2398F1ABFF5CE005A038A /* Shader.vsh in Resources */,
 				6953C94F1B5FF9C800E25D3B /* about_studio.png in Resources */,
+				E1E4F3B91B77480B00C1FE7B /* list-normal@2x.png in Resources */,
 				6953C9511B5FF9E100E25D3B /* bg@2x.png in Resources */,
+				E1E4F3BC1B77480B00C1FE7B /* yao-icon@2x.png in Resources */,
+				E1E4F3BB1B77480B00C1FE7B /* xiangmu@2x.png in Resources */,
 				E13993561A4971F8008E3B56 /* LaunchScreen.xib in Resources */,
 				6953C94D1B5FF9C800E25D3B /* about_logo.png in Resources */,
 				E13993531A4971F8008E3B56 /* Images.xcassets in Resources */,
@@ -491,6 +524,7 @@
 				E12080261AD64EAD005643AC /* StepsItem1.m in Sources */,
 				E142627A1ACD063B00BFD16E /* 116TextDrawelement.m in Sources */,
 				E13993781A4985BB008E3B56 /* UITableViewCell_ContainSwitcher.m in Sources */,
+				E1E4F3BF1B7748C400C1FE7B /* SMPageControl.m in Sources */,
 				E139937B1A498664008E3B56 /* UITableViewCell_ContainRemover.m in Sources */,
 				E120802F1AD7F993005643AC /* CustomPush.m in Sources */,
 				E120802C1AD64F3C005643AC /* StepsItem3.m in Sources */,

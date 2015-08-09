@@ -8,22 +8,23 @@
 
 #import "MainViewController.h"
 #import "DataCenter116.h"
+#import "SMPageControl.h"
 @interface MainViewController ()
 
 @property (strong, nonatomic) UIScrollView *projectScrollView;
-@property (weak, nonatomic) IBOutlet UIPageControl *projectPageControl;
+@property (weak, nonatomic) IBOutlet SMPageControl *projectPageControl;
 @end
 
 @implementation MainViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
+    self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"bg"]];
     [[DataCenter116 GetInstance] addObserver:self forKeyPath: @"ProjectRemoved" options:0 context:NULL];
     [[DataCenter116 GetInstance] addObserver:self forKeyPath: @"ProjectAdded" options:0 context:NULL];
     [[DataCenter116 GetInstance] addObserver:self forKeyPath: @"ProjectChanged" options:0 context:NULL];
     
-    _projectScrollView = [[UIScrollView alloc]initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, 400) ];
+    _projectScrollView = [[UIScrollView alloc]initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height) ];
     [self.view insertSubview:_projectScrollView atIndex:0];
     [_projectScrollView setPagingEnabled:YES];
     
@@ -33,7 +34,8 @@
    
     
     
- 
+    [_projectPageControl setPageIndicatorImage:[UIImage imageNamed:@"xiangmu"]];
+    [_projectPageControl setCurrentPageIndicatorImage:[UIImage imageNamed:@"dangqianxiangmu"]];
     _projectPageControl.backgroundColor = [UIColor clearColor];
     _projectPageControl.currentPageIndicatorTintColor = [UIColor redColor];
     _projectPageControl.pageIndicatorTintColor = [UIColor yellowColor];
