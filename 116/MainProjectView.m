@@ -55,7 +55,7 @@
     _pinyinLable = [[UILabel alloc]initWithFrame:CGRectMake(-10, 250, 250, 36)];
     _pinyinLable.transform = CGAffineTransformMakeRotation(90*M_PI/180);
     _pinyinLable.text = _pinyinString;
-    [_pinyinLable setFont: [UIFont fontWithName:@"fangsong" size: 100.0f]] ;
+    [_pinyinLable setFont: [UIFont fontWithName:@"fangsong" size: 36.0f]] ;
     [self addSubview:_pinyinLable];
     
     _verticalLable = [[UILabel alloc]initWithFrame:CGRectMake(150, 50, 100, 350)];

@@ -13,8 +13,6 @@
 		6953C94E1B5FF9C800E25D3B /* about_separator_line.png in Resources */ = {isa = PBXBuildFile; fileRef = 6953C94B1B5FF9C800E25D3B /* about_separator_line.png */; };
 		6953C94F1B5FF9C800E25D3B /* about_studio.png in Resources */ = {isa = PBXBuildFile; fileRef = 6953C94C1B5FF9C800E25D3B /* about_studio.png */; };
 		6953C9511B5FF9E100E25D3B /* bg@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6953C9501B5FF9E100E25D3B /* bg@2x.png */; };
-		69BB19B61B5B8C990030C722 /* 仿宋_GB2312.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 69BB19B41B5B8C990030C722 /* 仿宋_GB2312.ttf */; };
-		69BB19B91B5B8CBA0030C722 /* fzsxslkjw--gb1-0.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 69BB19B81B5B8CBA0030C722 /* fzsxslkjw--gb1-0.ttf */; };
 		E12080221AD64DCD005643AC /* StepsProjectName.m in Sources */ = {isa = PBXBuildFile; fileRef = E12080211AD64DCD005643AC /* StepsProjectName.m */; };
 		E12080261AD64EAD005643AC /* StepsItem1.m in Sources */ = {isa = PBXBuildFile; fileRef = E12080251AD64EAD005643AC /* StepsItem1.m */; };
 		E12080291AD64F18005643AC /* StepsItem2.m in Sources */ = {isa = PBXBuildFile; fileRef = E12080281AD64F18005643AC /* StepsItem2.m */; };
@@ -58,9 +56,10 @@
 		E1E4F3BF1B7748C400C1FE7B /* SMPageControl.m in Sources */ = {isa = PBXBuildFile; fileRef = E1E4F3BE1B7748C400C1FE7B /* SMPageControl.m */; };
 		E1E4F3C21B774F1700C1FE7B /* MainProjectView.m in Sources */ = {isa = PBXBuildFile; fileRef = E1E4F3C11B774F1700C1FE7B /* MainProjectView.m */; };
 		E1E4F3C51B77537A00C1FE7B /* liukai.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E1E4F3C31B77537A00C1FE7B /* liukai.ttf */; };
-		E1E4F3C61B77537A00C1FE7B /* Fangsong.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E1E4F3C41B77537A00C1FE7B /* Fangsong.ttf */; };
+		E1E4F3C61B77537A00C1FE7B /* fangsong.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E1E4F3C41B77537A00C1FE7B /* fangsong.ttf */; };
 		E1E4F3C71B77539700C1FE7B /* liukai.ttf in Sources */ = {isa = PBXBuildFile; fileRef = E1E4F3C31B77537A00C1FE7B /* liukai.ttf */; };
-		E1E4F3C81B77539700C1FE7B /* Fangsong.ttf in Sources */ = {isa = PBXBuildFile; fileRef = E1E4F3C41B77537A00C1FE7B /* Fangsong.ttf */; };
+		E1E4F3C81B77539700C1FE7B /* fangsong.ttf in Sources */ = {isa = PBXBuildFile; fileRef = E1E4F3C41B77537A00C1FE7B /* fangsong.ttf */; };
+		E1E4F3CB1B77A60C00C1FE7B /* UINavigationBar+customBar.m in Sources */ = {isa = PBXBuildFile; fileRef = E1E4F3CA1B77A60C00C1FE7B /* UINavigationBar+customBar.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -155,7 +154,9 @@
 		E1E4F3C01B774F1700C1FE7B /* MainProjectView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainProjectView.h; sourceTree = "<group>"; };
 		E1E4F3C11B774F1700C1FE7B /* MainProjectView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainProjectView.m; sourceTree = "<group>"; };
 		E1E4F3C31B77537A00C1FE7B /* liukai.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = liukai.ttf; sourceTree = "<group>"; };
-		E1E4F3C41B77537A00C1FE7B /* Fangsong.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Fangsong.ttf; sourceTree = "<group>"; };
+		E1E4F3C41B77537A00C1FE7B /* fangsong.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = fangsong.ttf; sourceTree = "<group>"; };
+		E1E4F3C91B77A60C00C1FE7B /* UINavigationBar+customBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UINavigationBar+customBar.h"; sourceTree = "<group>"; };
+		E1E4F3CA1B77A60C00C1FE7B /* UINavigationBar+customBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UINavigationBar+customBar.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -282,7 +283,7 @@
 			isa = PBXGroup;
 			children = (
 				E1E4F3C31B77537A00C1FE7B /* liukai.ttf */,
-				E1E4F3C41B77537A00C1FE7B /* Fangsong.ttf */,
+				E1E4F3C41B77537A00C1FE7B /* fangsong.ttf */,
 				E1E4F3AF1B77480B00C1FE7B /* bg@2x.png */,
 				E1E4F3B01B77480B00C1FE7B /* dangqianxiangmu@2x.png */,
 				E1E4F3B11B77480B00C1FE7B /* info-normal@2x.png */,
@@ -357,6 +358,8 @@
 		E13993751A498435008E3B56 /* CustomControls */ = {
 			isa = PBXGroup;
 			children = (
+				E1E4F3C91B77A60C00C1FE7B /* UINavigationBar+customBar.h */,
+				E1E4F3CA1B77A60C00C1FE7B /* UINavigationBar+customBar.m */,
 				E1E4F3BD1B7748C400C1FE7B /* SMPageControl.h */,
 				E1E4F3BE1B7748C400C1FE7B /* SMPageControl.m */,
 				E13993761A4985BB008E3B56 /* UITableViewCell_ContainSwitcher.h */,
@@ -485,7 +488,6 @@
 				E13993511A4971F8008E3B56 /* Main.storyboard in Resources */,
 				E1E4F3B81B77480B00C1FE7B /* info-normal@2x.png in Resources */,
 				E1E4F3BA1B77480B00C1FE7B /* start-normal@2x.png in Resources */,
-				69BB19B91B5B8CBA0030C722 /* fzsxslkjw--gb1-0.ttf in Resources */,
 				69043E421B652FB400F85506 /* back-press@2x.png in Resources */,
 				E1E4F3B71B77480B00C1FE7B /* dangqianxiangmu@2x.png in Resources */,
 				E1E4F3B61B77480B00C1FE7B /* bg@2x.png in Resources */,
@@ -500,8 +502,7 @@
 				E1E4F3C51B77537A00C1FE7B /* liukai.ttf in Resources */,
 				E13993531A4971F8008E3B56 /* Images.xcassets in Resources */,
 				6953C94E1B5FF9C800E25D3B /* about_separator_line.png in Resources */,
-				69BB19B61B5B8C990030C722 /* 仿宋_GB2312.ttf in Resources */,
-				E1E4F3C61B77537A00C1FE7B /* Fangsong.ttf in Resources */,
+				E1E4F3C61B77537A00C1FE7B /* fangsong.ttf in Resources */,
 				69043E411B652FB400F85506 /* back-normal@2x.png in Resources */,
 				E1A2398E1ABFF5CE005A038A /* Shader.fsh in Resources */,
 			);
@@ -522,7 +523,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E1E4F3C71B77539700C1FE7B /* liukai.ttf in Sources */,
-				E1E4F3C81B77539700C1FE7B /* Fangsong.ttf in Sources */,
+				E1E4F3C81B77539700C1FE7B /* fangsong.ttf in Sources */,
 				E139937E1A4986A5008E3B56 /* UITableViewCell_ContainRemover_116Project.m in Sources */,
 				E14262811ACD135900BFD16E /* Utils116.m in Sources */,
 				E139934B1A4971F8008E3B56 /* AppDelegate.m in Sources */,
@@ -533,6 +534,7 @@
 				E12080221AD64DCD005643AC /* StepsProjectName.m in Sources */,
 				E13993811A4986DA008E3B56 /* UITableViewCell_ContainRemover_116Item.m in Sources */,
 				E139938D1A498A33008E3B56 /* DataCenter116.m in Sources */,
+				E1E4F3CB1B77A60C00C1FE7B /* UINavigationBar+customBar.m in Sources */,
 				E13993481A4971F8008E3B56 /* main.m in Sources */,
 				E14262CF1ACD388B00BFD16E /* RenderScene.m in Sources */,
 				E1A239801ABFDB8A005A038A /* ResultViewController.m in Sources */,

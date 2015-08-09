@@ -83,7 +83,10 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" id="kv6-Ba-2Rl">
-                        <barButtonItem key="rightBarButtonItem" title="Item" systemItem="add" id="Yeg-Xw-ORi"/>
+                        <barButtonItem key="backBarButtonItem" title="返回" id="k13-G1-gu3"/>
+                        <barButtonItem key="rightBarButtonItem" title="新建" id="Yeg-Xw-ORi">
+                            <color key="tintColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="addProjectButtonItem" destination="Yeg-Xw-ORi" id="86M-dx-tr4"/>

@@ -27,22 +27,32 @@
     }
     self.selectionStyle = UITableViewCellSelectionStyleNone;
     self.autoresizesSubviews = true;
-    _removeButton = [[UIButton alloc]initWithFrame:CGRectMake(realwidth - 100, 0, 100,self.bounds.size.height)];
+    _removeButton = [[UIButton alloc]initWithFrame:CGRectMake(realwidth - 50, 0, 50,self.bounds.size.height)];
     [self addSubview:_removeButton];
-    [_removeButton setTitle:@"Delete" forState:UIControlStateNormal];
+    [_removeButton setTitle:@"删除" forState:UIControlStateNormal];
 
-    _removeButton.backgroundColor = [UIColor greenColor];
+    _removeButton.backgroundColor = [UIColor redColor];
     
     [_removeButton addTarget:self action:@selector(ondeleteItem:) forControlEvents:UIControlEventTouchDown];
+    
+    [_removeButton setFont: [UIFont fontWithName:@"fangsong" size: 17.0f]] ;
     
     self.forgroundView = [[UIView alloc] init];
     self.forgroundView.frame = CGRectMake(0, 0, realwidth,self.bounds.size.height);
     self.forgroundView.backgroundColor = [UIColor whiteColor];
     [self addSubview:self.forgroundView];
     
-    _textlabel = [[UILabel alloc]initWithFrame:_forgroundView.bounds];
+    _textlabel = [[UILabel alloc]initWithFrame:CGRectMake(_forgroundView.bounds.origin.x + 50, _forgroundView.bounds.origin.y, _forgroundView.bounds.size.width, _forgroundView.bounds.size.height)];
+    
+    _bottomLine = [[UILabel alloc]initWithFrame:CGRectMake(_forgroundView.bounds.origin.x + 50, _forgroundView.bounds.origin.y + _forgroundView.bounds.size.height - 1, _forgroundView.bounds.size.width, 1)];
+    _bottomLine.backgroundColor = [UIColor grayColor];
+    
+    
     [_forgroundView addSubview:_textlabel];
-    _textlabel.textAlignment = UITextAlignmentCenter;
+    [_forgroundView addSubview:_bottomLine];
+    _textlabel.textAlignment = UITextAlignmentLeft;
+   [_textlabel setFont: [UIFont fontWithName:@"fangsong" size: 17.0f]] ;
+    
     
     
     
@@ -54,8 +64,8 @@
     [_panGestureRecognizer setMaximumNumberOfTouches:1];
     _panGestureRecognizer.delegate = self;
     [self.forgroundView addGestureRecognizer:_panGestureRecognizer];
-    firstX = 0;
-    swipeWidth = 100;
+    firstX = 50;
+    swipeWidth = 50;
 }
 
 

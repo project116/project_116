@@ -10,6 +10,7 @@
 #import "DataCenter116.h"
 #import "SMPageControl.h"
 #import "MainProjectView.h"
+#import "UINavigationBar+customBar.h"
 @interface MainViewController ()
 
 @property (strong, nonatomic) UIScrollView *projectScrollView;
@@ -21,6 +22,19 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"bg"]];
+    
+    UIBarButtonItem *temporaryBarButtonItem = [[UIBarButtonItem alloc] init];
+    temporaryBarButtonItem.title = @"主页";
+    NSDictionary *attributes = [NSDictionary dictionaryWithObjectsAndKeys:
+                                
+                                [UIFont fontWithName:@"fangsong" size: 18.0f],
+                                
+                                NSFontAttributeName, nil];
+    
+    [[UIBarButtonItem appearance] setTitleTextAttributes:attributes forState:UIControlStateNormal];
+    self.navigationItem.backBarButtonItem = temporaryBarButtonItem;
+
+    
     [[DataCenter116 GetInstance] addObserver:self forKeyPath: @"ProjectRemoved" options:0 context:NULL];
     [[DataCenter116 GetInstance] addObserver:self forKeyPath: @"ProjectAdded" options:0 context:NULL];
     [[DataCenter116 GetInstance] addObserver:self forKeyPath: @"ProjectChanged" options:0 context:NULL];

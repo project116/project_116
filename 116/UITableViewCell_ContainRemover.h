@@ -15,5 +15,6 @@
 }
 @property (strong,nonatomic) UILabel * textlabel;
 @property (strong, nonatomic) UIView * forgroundView;
+@property (strong, nonatomic) UILabel * bottomLine;
 - (void)awakeFromNib :(CGFloat)realwidth;
 @end

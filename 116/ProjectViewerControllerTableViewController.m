@@ -22,14 +22,20 @@
     [super viewDidLoad];
     
 
+    NSDictionary *attributes = [NSDictionary dictionaryWithObjectsAndKeys:
+                                
+                                [UIFont fontWithName:@"fangsong" size: 18.0f],
+                                
+                                NSFontAttributeName, nil];
     
+    [self.navigationController.navigationBar setTitleTextAttributes:attributes];
+
+    self.title = @"列表";
     _addProjectButtonItem.target = self;
     _addProjectButtonItem.action = @selector(AddProjectButtonClicked);
-    // Uncomment the following line to preserve selection between presentations.
-    // self.clearsSelectionOnViewWillAppear = NO;
-    
-    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+    self.navigationController.navigationBar.tintColor = [UIColor blackColor];
+    [self.navigationController.navigationBar setFrame:CGRectMake(0, 0, self.view.bounds.size.width, 65)];
+    self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
 }
 
 
@@ -87,6 +93,11 @@
     cell.project116 = [[DataCenter116 GetInstance]GetProjectAt:indexPath.row];
     cell.textlabel.text = [[DataCenter116 GetInstance]GetProjectNameAt:indexPath.row];
     return cell;
+}
+
+-(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    return 50;
 }
 
 - (void)observeValueForKeyPath:(NSString *)keyPath

@@ -24,9 +24,10 @@
 -(void)awakeFromNib:(CGFloat)realwidth
 {
     [super awakeFromNib:realwidth];
-    _editbutton = [[UIButton alloc]initWithFrame:CGRectMake(self.forgroundView.bounds.size.width - 40, 0, 40,self.forgroundView.bounds.size.height)];
+    _editbutton = [[UIButton alloc]initWithFrame:CGRectMake(self.forgroundView.bounds.size.width - 39, 13, 24,24)];
     [self.forgroundView addSubview:_editbutton];
-    [_editbutton setTitle:@"i" forState:UIControlStateNormal];
+    //[_editbutton setTitle:@"i" forState:UIControlStateNormal];
+    [_editbutton setBackgroundImage:[UIImage imageNamed:@"info-normal"] forState:UIControlStateNormal];
     [_editbutton setTitleColor:[UIColor blueColor] forState:UIControlStateNormal];
     [_editbutton addTarget:self action:@selector(editClicked:) forControlEvents:UIControlEventTouchDown];
 }
