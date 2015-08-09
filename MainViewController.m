@@ -9,6 +9,7 @@
 #import "MainViewController.h"
 #import "DataCenter116.h"
 #import "SMPageControl.h"
+#import "MainProjectView.h"
 @interface MainViewController ()
 
 @property (strong, nonatomic) UIScrollView *projectScrollView;
@@ -64,7 +65,7 @@
     _projectPageControl.numberOfPages = numberOfPages;     //几个小点
     
     //为每个分页添加内容
-    UILabel *pageLabel ;
+    MainProjectView *pageLabel ;
     CGRect pageFrame ;
     char aLetter ;
     
@@ -76,27 +77,14 @@
     for (int i = 0 ; i < numberOfPages ; i++)
     {
         // determine the frame of the current page
-        pageFrame = CGRectMake(i * _projectScrollView.bounds.size.width, 0.0f, _projectScrollView.bounds.size.width, _projectScrollView.bounds.size.height) ;
+        pageFrame = CGRectMake(i * _projectScrollView.bounds.size.width, 0.0f, _projectScrollView.bounds.size.width, 400) ;
         
         // create a page as a simple UILabel
-        pageLabel = [[UILabel alloc] initWithFrame: pageFrame] ;
+        pageLabel = [[MainProjectView alloc] initWithFrame: pageFrame withString:[[DataCenter116 GetInstance] GetProjectNameAt:i] ] ;
         
         // add it to the scroll view
         [_projectScrollView addSubview: pageLabel] ;
-        //[pageLabel release] ;
         
-        // determine and set its (random) background color
-        //color = [UIColor colorWithRed: (CGFloat)arc4random()/ARC4RANDOM_MAX green: (CGFloat)arc4random()/ARC4RANDOM_MAX blue: (CGFloat)arc4random()/ARC4RANDOM_MAX alpha: 1.0f] ;
-        //[pageLabel setBackgroundColor: color] ;
-        
-        // set some label properties
-        [pageLabel setFont: [UIFont boldSystemFontOfSize: 100.0f]] ;
-        [pageLabel setTextAlignment: UITextAlignmentCenter] ;
-        [pageLabel setTextColor: [UIColor darkTextColor]] ;
-        
-        // set the label's text as the letter corresponding to the current page index
-        //aLetter = (char)((i+65)-(i/26)*26) ;    // the capitalized alphabet characters are in the range 65-90
-        pageLabel.text = [[DataCenter116 GetInstance] GetProjectNameAt:i] ;
     }
 
 }

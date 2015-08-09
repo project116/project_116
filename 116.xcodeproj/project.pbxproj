@@ -56,6 +56,7 @@
 		E1E4F3BB1B77480B00C1FE7B /* xiangmu@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E1E4F3B41B77480B00C1FE7B /* xiangmu@2x.png */; };
 		E1E4F3BC1B77480B00C1FE7B /* yao-icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E1E4F3B51B77480B00C1FE7B /* yao-icon@2x.png */; };
 		E1E4F3BF1B7748C400C1FE7B /* SMPageControl.m in Sources */ = {isa = PBXBuildFile; fileRef = E1E4F3BE1B7748C400C1FE7B /* SMPageControl.m */; };
+		E1E4F3C21B774F1700C1FE7B /* MainProjectView.m in Sources */ = {isa = PBXBuildFile; fileRef = E1E4F3C11B774F1700C1FE7B /* MainProjectView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -147,6 +148,8 @@
 		E1E4F3B51B77480B00C1FE7B /* yao-icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "yao-icon@2x.png"; sourceTree = "<group>"; };
 		E1E4F3BD1B7748C400C1FE7B /* SMPageControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SMPageControl.h; sourceTree = "<group>"; };
 		E1E4F3BE1B7748C400C1FE7B /* SMPageControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SMPageControl.m; sourceTree = "<group>"; };
+		E1E4F3C01B774F1700C1FE7B /* MainProjectView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainProjectView.h; sourceTree = "<group>"; };
+		E1E4F3C11B774F1700C1FE7B /* MainProjectView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainProjectView.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -358,6 +361,8 @@
 				E13993801A4986DA008E3B56 /* UITableViewCell_ContainRemover_116Item.m */,
 				E193A3F31A4D3ECC009B964E /* UITableViewCell_ContainRemover2.h */,
 				E193A3F41A4D3ECC009B964E /* UITableViewCell_ContainRemover2.m */,
+				E1E4F3C01B774F1700C1FE7B /* MainProjectView.h */,
+				E1E4F3C11B774F1700C1FE7B /* MainProjectView.m */,
 			);
 			name = CustomControls;
 			sourceTree = "<group>";
@@ -522,6 +527,7 @@
 				E1A239861ABFEA38005A038A /* RippleModel.m in Sources */,
 				E12080291AD64F18005643AC /* StepsItem2.m in Sources */,
 				E12080261AD64EAD005643AC /* StepsItem1.m in Sources */,
+				E1E4F3C21B774F1700C1FE7B /* MainProjectView.m in Sources */,
 				E142627A1ACD063B00BFD16E /* 116TextDrawelement.m in Sources */,
 				E13993781A4985BB008E3B56 /* UITableViewCell_ContainSwitcher.m in Sources */,
 				E1E4F3BF1B7748C400C1FE7B /* SMPageControl.m in Sources */,
