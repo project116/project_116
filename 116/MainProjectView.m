@@ -61,7 +61,7 @@
     _verticalLable = [[UILabel alloc]initWithFrame:CGRectMake(150, 50, 100, 350)];
     _verticalLable.numberOfLines = 0;
     _verticalLable.text = _verticalString;
-    [_verticalLable setFont: [UIFont fontWithName:@"fangsong" size: 100.0f]] ;
+    [_verticalLable setFont: [UIFont fontWithName:@"FZSuXinShiLiuKaiS-R-GB" size: 100.0f]] ;
     [self addSubview:_verticalLable];
     
     return self;

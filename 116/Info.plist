@@ -4,8 +4,8 @@
 <dict>
 	<key>UIAppFonts</key>
 	<array>
-		<string>方正黑体简体.ttf</string>
-		<string>fzsxslkjw--gb1-0.ttf</string>
+		<string>Fangsong.ttf</string>
+		<string>liukai.ttf</string>
 	</array>
 	<key>LSApplicationCategoryType</key>
 	<string></string>
