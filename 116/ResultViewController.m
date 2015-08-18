@@ -35,8 +35,12 @@
     // Do any additional setup after loading the view.
     Project116 * curproj = [[DataCenter116 GetInstance]GetCurrentProject];
     int itemcount = curproj.items.count;
-    int value = arc4random() % itemcount;
-    _ResultLabel.text = [[DataCenter116 GetInstance]GetItemNameAt:value atProject:curproj];
+    unsigned int random = arc4random();
+    int value = random % itemcount;
+    int value1 = (random+1) % itemcount;
+    NSString * string = [[DataCenter116 GetInstance]GetItemNameAt:value atProject:curproj];
+    NSString * string1 = [[DataCenter116 GetInstance]GetItemNameAt:value1 atProject:curproj];
+    _ResultLabel.text = [string isEqualToString:@""]?string1:string ;
     _ResultLabel.textColor = [UIColor blackColor];
     
     
@@ -103,8 +107,12 @@
 {
     Project116 * curproj = [[DataCenter116 GetInstance]GetCurrentProject];
     int itemcount = curproj.items.count;
-    int value = arc4random() % itemcount;
-    _ResultLabel.text = [[DataCenter116 GetInstance]GetItemNameAt:value atProject:curproj];
+    unsigned int random = arc4random();
+    int value = random % itemcount;
+    int value1 = (random+1) % itemcount;
+    NSString * string = [[DataCenter116 GetInstance]GetItemNameAt:value atProject:curproj];
+    NSString * string1 = [[DataCenter116 GetInstance]GetItemNameAt:value1 atProject:curproj];
+    _ResultLabel.text = [string isEqualToString:@""]?string1:string ; 
     _ResultLabel.textColor = [UIColor blackColor];
 }
 

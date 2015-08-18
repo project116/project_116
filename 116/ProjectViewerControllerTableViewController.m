@@ -13,7 +13,7 @@
 
 @interface ProjectViewerControllerTableViewController ()
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *addProjectButtonItem;
-
+@property (strong, nonatomic) UILabel * bottomLine;
 @end
 
 @implementation ProjectViewerControllerTableViewController
@@ -21,6 +21,12 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    _bottomLine = [[UILabel alloc]initWithFrame:CGRectMake(0, 0, self.view.bounds.size.width, 1)];
+    _bottomLine.backgroundColor = [UIColor lightGrayColor];
+    
+    
+    [self.view addSubview:_bottomLine];
+
 
     NSDictionary *attributes = [NSDictionary dictionaryWithObjectsAndKeys:
                                 
@@ -108,7 +114,7 @@
     if([keyPath isEqualToString: @"ProjectTobeEdit"])
     {
         ItemTableViewController * svc=[[ItemTableViewController alloc]init];
-        svc.title = @"Edit proj";
+        svc.title = @"编辑项目";
         svc.project116 = [[DataCenter116 GetInstance] GetCurrentProject];
         [self.navigationController pushViewController:svc animated:YES];
     }
@@ -121,7 +127,7 @@
 - (void)AddProjectButtonClicked
 {
     ItemTableViewController * svc=[[ItemTableViewController alloc]init];
-    svc.title = @"Add proj";
+    svc.title = @"新建项目";
     svc.project116 = nil;
     [self.navigationController pushViewController:svc animated:YES];
 }

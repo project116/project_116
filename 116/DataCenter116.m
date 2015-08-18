@@ -223,8 +223,10 @@ static DataCenter116 * instance;
 
 -(void)AddItem:(NSString *)itemName atProject:(Project116 *)project
 {
-    if ([itemName isEqualToString:@""]) {
-        return;
+    for (int i = 0; i < project.items.count; ++i) {
+        if ([((Item116*)(project.items[i])).itemName isEqualToString: itemName]) {
+            return;
+        }
     }
     [self willChangeValueForKey:@"ItemAdded"];
     [project.items addObject:[[Item116 alloc]initWithName:itemName]];
@@ -243,8 +245,10 @@ static DataCenter116 * instance;
 
 - (void)ChangeItemName:(NSString*)itemName atItem:(Item116 *)item atProject:(Project116 *)project
 {
-    if ([itemName isEqualToString:@""]) {
-        return;
+    for (int i = 0; i < project.items.count; ++i) {
+        if ([((Item116*)(project.items[i])).itemName isEqualToString: itemName]) {
+            return;
+        }
     }
     [self willChangeValueForKey:@"ItemChanged"];
     NSString* oldname = item.itemName;

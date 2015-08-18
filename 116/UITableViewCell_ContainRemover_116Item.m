@@ -14,10 +14,23 @@
 - (void)awakeFromNib :(CGFloat)realwidth {
     // Initialization code
     [super awakeFromNib:realwidth];
-    _textfield = [[UITextField alloc]initWithFrame:CGRectMake(40, 0,self.forgroundView.bounds.size.width - 40, self.forgroundView.bounds.size.height)];
+    _textfield = [[UITextField alloc]initWithFrame:CGRectMake(50, 0,self.forgroundView.bounds.size.width - 50, self.forgroundView.bounds.size.height)];
+    [_textfield setFont: [UIFont fontWithName:@"fangsong" size: 17.0f]] ;
     [self.forgroundView addSubview:_textfield];
-    _textfield.placeholder = @"添加选项";
+    _textfield.placeholder =  (_item116 == nil)? @"添加选项":@"";
     _textfield.delegate = self;
+    [_textfield becomeFirstResponder];
+    
+    _removebutton1 = [[UIButton alloc]initWithFrame:CGRectMake(16, (self.bounds.size.height - 17)/2, 17, 17)];
+    [self addSubview:_removebutton1];
+    _removebutton1.hidden = true;
+    [_removebutton1 setBackgroundImage:[UIImage imageNamed:@"delete-normal"] forState:UIControlStateNormal];
+    
+    
+    [_removebutton1 addTarget:self action:@selector(ondeleteItem1:) forControlEvents:UIControlEventTouchDown];
+    
+    [_textfield addTarget:self action:@selector(editClicked:) forControlEvents:UIControlEventTouchDown];
+    
 }
 /*
 // Only override drawRect: if you perform custom drawing.
@@ -32,20 +45,34 @@
     [[DataCenter116 GetInstance] RemoveItem:_item116 atProject:curproj];
 }
 
+-(void)ondeleteItem1:(id)sender
+{
+    Project116 * curproj = [[DataCenter116 GetInstance]GetCurrentProject];
+    [[DataCenter116 GetInstance] RemoveItem:_item116 atProject:curproj];
+}
+
+
+
+- (void)textFieldDidBeginEditing:(UITextField *)textField
+{
+    _removebutton1.hidden = false;
+
+
+}
+
+-(void)textFieldDidEndEditing:(UITextField *)textField
+{
+    _removebutton1.hidden = true;
+    [[DataCenter116 GetInstance]ChangeItemName:_textfield.text atItem:_item116 atProject:[[DataCenter116 GetInstance]GetCurrentProject]];
+}
+
 
 - (BOOL)textFieldShouldReturn:(UITextField *)textField
 {
-    if (_item116 == nil) {
-        [[DataCenter116 GetInstance]AddItem:_textfield.text atProject:[[DataCenter116 GetInstance]GetCurrentProject]];
-    }
-    else
-    {
-        [[DataCenter116 GetInstance]ChangeItemName:_textfield.text atItem:_item116 atProject:[[DataCenter116 GetInstance]GetCurrentProject]];
-    }
-    
+    _removebutton1.hidden = true;
+    [[DataCenter116 GetInstance]ChangeItemName:_textfield.text atItem:_item116 atProject:[[DataCenter116 GetInstance]GetCurrentProject]];
     return YES;
 }
-
 
 
 @end
