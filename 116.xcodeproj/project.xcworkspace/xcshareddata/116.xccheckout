@@ -5,13 +5,13 @@
 	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
 	<false/>
 	<key>IDESourceControlProjectIdentifier</key>
-	<string>67C7EE55-B4DC-436F-BEA2-6AC0D014EB1A</string>
+	<string>8A5D1F44-40BF-44E3-BD65-5FE694F71C68</string>
 	<key>IDESourceControlProjectName</key>
 	<string>116</string>
 	<key>IDESourceControlProjectOriginsDictionary</key>
 	<dict>
 		<key>29CA69563DF744DBA4872985980581A34216408D</key>
-		<string>https://github.com/project116/project_116.git</string>
+		<string>https://github.com/project116/project_116</string>
 	</dict>
 	<key>IDESourceControlProjectPath</key>
 	<string>116.xcodeproj</string>
@@ -21,7 +21,7 @@
 		<string>../..</string>
 	</dict>
 	<key>IDESourceControlProjectURL</key>
-	<string>https://github.com/project116/project_116.git</string>
+	<string>https://github.com/project116/project_116</string>
 	<key>IDESourceControlProjectVersion</key>
 	<integer>111</integer>
 	<key>IDESourceControlProjectWCCIdentifier</key>
