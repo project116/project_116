@@ -45,7 +45,7 @@
     _textlabel = [[UILabel alloc]initWithFrame:CGRectMake(_forgroundView.bounds.origin.x + 50, _forgroundView.bounds.origin.y, _forgroundView.bounds.size.width, _forgroundView.bounds.size.height)];
     
     _bottomLine = [[UILabel alloc]initWithFrame:CGRectMake(_forgroundView.bounds.origin.x + 50, _forgroundView.bounds.origin.y + _forgroundView.bounds.size.height - 1, _forgroundView.bounds.size.width, 1)];
-    _bottomLine.backgroundColor = [UIColor grayColor];
+    _bottomLine.backgroundColor = [UIColor lightGrayColor];
     
     
     [_forgroundView addSubview:_textlabel];

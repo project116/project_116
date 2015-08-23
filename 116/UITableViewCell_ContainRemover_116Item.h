@@ -13,4 +13,5 @@
 
 @property (weak, nonatomic) Item116 * item116;
 @property (strong, nonatomic) UITextField * textfield;
+@property (strong, nonatomic) UIButton * removebutton1;
 @end

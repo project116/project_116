@@ -14,4 +14,6 @@
 @property (weak, nonatomic) Project116 * project116;
 @property (strong, nonatomic) UITextField * textfield;
 @property (strong, nonatomic) UIButton * textlable;
+@property (strong, nonatomic) UILabel * bottomLine;
+
 @end

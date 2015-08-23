@@ -60,6 +60,9 @@
 		E1E4F3C71B77539700C1FE7B /* liukai.ttf in Sources */ = {isa = PBXBuildFile; fileRef = E1E4F3C31B77537A00C1FE7B /* liukai.ttf */; };
 		E1E4F3C81B77539700C1FE7B /* fangsong.ttf in Sources */ = {isa = PBXBuildFile; fileRef = E1E4F3C41B77537A00C1FE7B /* fangsong.ttf */; };
 		E1E4F3CB1B77A60C00C1FE7B /* UINavigationBar+customBar.m in Sources */ = {isa = PBXBuildFile; fileRef = E1E4F3CA1B77A60C00C1FE7B /* UINavigationBar+customBar.m */; };
+		E1E4F3CD1B78619500C1FE7B /* back-normal@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E1E4F3CC1B78619500C1FE7B /* back-normal@2x.png */; };
+		E1E4F3CF1B83236D00C1FE7B /* delete-normal@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E1E4F3CE1B83236D00C1FE7B /* delete-normal@2x.png */; };
+		E1E4F3D21B832A9F00C1FE7B /* UITableViewCell_AddItemCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E1E4F3D11B832A9F00C1FE7B /* UITableViewCell_AddItemCell.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -157,6 +160,10 @@
 		E1E4F3C41B77537A00C1FE7B /* fangsong.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = fangsong.ttf; sourceTree = "<group>"; };
 		E1E4F3C91B77A60C00C1FE7B /* UINavigationBar+customBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UINavigationBar+customBar.h"; sourceTree = "<group>"; };
 		E1E4F3CA1B77A60C00C1FE7B /* UINavigationBar+customBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UINavigationBar+customBar.m"; sourceTree = "<group>"; };
+		E1E4F3CC1B78619500C1FE7B /* back-normal@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "back-normal@2x.png"; sourceTree = "<group>"; };
+		E1E4F3CE1B83236D00C1FE7B /* delete-normal@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "delete-normal@2x.png"; sourceTree = "<group>"; };
+		E1E4F3D01B832A9F00C1FE7B /* UITableViewCell_AddItemCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UITableViewCell_AddItemCell.h; sourceTree = "<group>"; };
+		E1E4F3D11B832A9F00C1FE7B /* UITableViewCell_AddItemCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UITableViewCell_AddItemCell.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -282,6 +289,8 @@
 		E13993451A4971F8008E3B56 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				E1E4F3CE1B83236D00C1FE7B /* delete-normal@2x.png */,
+				E1E4F3CC1B78619500C1FE7B /* back-normal@2x.png */,
 				E1E4F3C31B77537A00C1FE7B /* liukai.ttf */,
 				E1E4F3C41B77537A00C1FE7B /* fangsong.ttf */,
 				E1E4F3AF1B77480B00C1FE7B /* bg@2x.png */,
@@ -359,6 +368,8 @@
 			isa = PBXGroup;
 			children = (
 				E1E4F3C91B77A60C00C1FE7B /* UINavigationBar+customBar.h */,
+				E1E4F3D01B832A9F00C1FE7B /* UITableViewCell_AddItemCell.h */,
+				E1E4F3D11B832A9F00C1FE7B /* UITableViewCell_AddItemCell.m */,
 				E1E4F3CA1B77A60C00C1FE7B /* UINavigationBar+customBar.m */,
 				E1E4F3BD1B7748C400C1FE7B /* SMPageControl.h */,
 				E1E4F3BE1B7748C400C1FE7B /* SMPageControl.m */,
@@ -498,12 +509,14 @@
 				E1E4F3BC1B77480B00C1FE7B /* yao-icon@2x.png in Resources */,
 				E1E4F3BB1B77480B00C1FE7B /* xiangmu@2x.png in Resources */,
 				E13993561A4971F8008E3B56 /* LaunchScreen.xib in Resources */,
+				E1E4F3CD1B78619500C1FE7B /* back-normal@2x.png in Resources */,
 				6953C94D1B5FF9C800E25D3B /* about_logo.png in Resources */,
 				E1E4F3C51B77537A00C1FE7B /* liukai.ttf in Resources */,
 				E13993531A4971F8008E3B56 /* Images.xcassets in Resources */,
 				6953C94E1B5FF9C800E25D3B /* about_separator_line.png in Resources */,
 				E1E4F3C61B77537A00C1FE7B /* fangsong.ttf in Resources */,
 				69043E411B652FB400F85506 /* back-normal@2x.png in Resources */,
+				E1E4F3CF1B83236D00C1FE7B /* delete-normal@2x.png in Resources */,
 				E1A2398E1ABFF5CE005A038A /* Shader.fsh in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -537,6 +550,7 @@
 				E1E4F3CB1B77A60C00C1FE7B /* UINavigationBar+customBar.m in Sources */,
 				E13993481A4971F8008E3B56 /* main.m in Sources */,
 				E14262CF1ACD388B00BFD16E /* RenderScene.m in Sources */,
+				E1E4F3D21B832A9F00C1FE7B /* UITableViewCell_AddItemCell.m in Sources */,
 				E1A239801ABFDB8A005A038A /* ResultViewController.m in Sources */,
 				E1A239861ABFEA38005A038A /* RippleModel.m in Sources */,
 				E12080291AD64F18005643AC /* StepsItem2.m in Sources */,

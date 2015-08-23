@@ -17,6 +17,17 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
+    NSDictionary *attributes = [NSDictionary dictionaryWithObjectsAndKeys:
+                                
+                                [UIFont fontWithName:@"fangsong" size: 18.0f],
+                                
+                                NSFontAttributeName, nil];
+    
+    [[UIBarButtonItem appearance] setTitleTextAttributes:attributes forState:UIControlStateNormal];
+    
+    [[UINavigationBar appearance] setBackIndicatorImage:[UIImage imageNamed:@"dangqianxiangmu"] ];
+    [[UINavigationBar appearance] setBackIndicatorTransitionMaskImage:[UIImage imageNamed:@"dangqianxiangmuxiangmu"] ];
+    [[UINavigationBar appearance] setTintColor:[UIColor blueColor]];
     return YES;
 }
 

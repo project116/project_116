@@ -10,25 +10,32 @@
 #import "UITableViewCell_ContainSwitcher.h"
 #import "UITableViewCell_ContainRemover_116Item.h"
 #import "UITableViewCell_ContainRemover2.h"
+#import "UITableViewCell_AddItemCell.h"
 #import "DataCenter116.h"
 
 @interface ItemTableViewController ()
-
+@property (strong, nonatomic) UILabel * bottomLine;
 @end
 
 @implementation ItemTableViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    _bottomLine = [[UILabel alloc]initWithFrame:CGRectMake(0, 0, self.view.bounds.size.width, 1)];
+    _bottomLine.backgroundColor = [UIColor lightGrayColor];
     
     
+    [self.view addSubview:_bottomLine];
     
+    self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     
-    UIBarButtonItem *doneBtn = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemDone target:self action:@selector(dodone)];
-    doneBtn.enabled = false;
-    //UIBarButtonItem *pauseBtn = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemPause target:self action:@selector(stopDownloadAll)];
+    UIBarButtonItem *doneBtn = [[UIBarButtonItem alloc] initWithTitle:@"完成" style:UIBarButtonItemStylePlain  target:self action:@selector(dodone)];
+    //doneBtn.enabled = false;
+    doneBtn.title = @"完成";
+
     [self.navigationItem setRightBarButtonItems:[NSArray arrayWithObjects: doneBtn,nil]];
 
+    
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
     
@@ -130,13 +137,12 @@
         if (cell == nil) {
             cell = [[UITableViewCell_ContainRemover2 alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
             
-            cell.backgroundColor = [UIColor grayColor];
+            //cell.backgroundColor = [UIColor grayColor];
         }
         [cell awakeFromNib: tableView.bounds.size.width];
         if (_project116 != nil) {
             cell.textfield.text = _project116.projectName;
-            [cell.textlable setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
-            [cell.textlable setTitle:_project116.projectName forState:UIControlStateNormal ];
+            
         }
         else
         {
@@ -149,13 +155,14 @@
     else if(indexPath.row == 1 + itemCount)
     {
         static NSString *CellIdentifier = @"EmptyCellIdentifier";
-        UITableViewCell_ContainRemover_116Item *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+        UITableViewCell_AddItemCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
         if (cell == nil) {
-            cell = [[UITableViewCell_ContainRemover_116Item alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
+            cell = [[UITableViewCell_AddItemCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
+            [cell awakeFromNib];
+
             
         }
-        [cell awakeFromNib: tableView.bounds.size.width];
-        return cell;
+                return cell;
     }
     else if(indexPath.row > 0 && indexPath.row < (1+ itemCount))
     {
@@ -168,10 +175,12 @@
             
             
         }
-        [cell awakeFromNib: tableView.bounds.size.width];
+        
         
         
         cell.item116 = [[DataCenter116 GetInstance]GetItemAt:(indexPath.row - 1) atProject:_project116];
+        
+        [cell awakeFromNib: tableView.bounds.size.width];
         cell.textfield.text = [[DataCenter116 GetInstance] GetItemNameAt:(indexPath.row - 1) atProject:_project116];
         return cell;
 
@@ -179,6 +188,10 @@
     return nil;
 }
 
+-(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    return 50;
+}
 
 /*
 // Override to support conditional editing of the table view.

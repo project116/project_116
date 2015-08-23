@@ -26,7 +26,7 @@
     [self addSubview:_removeButton];
     [_removeButton setTitle:@"Del" forState:UIControlStateNormal];
     
-    _removeButton.backgroundColor = [UIColor grayColor];
+    //_removeButton.backgroundColor = [UIColor grayColor];
     _removeButton.hidden = true;
     
     [_removeButton addTarget:self action:@selector(ondeleteItem:) forControlEvents:UIControlEventTouchDown];
@@ -34,15 +34,28 @@
     
     
     self.textlable = [[UIButton alloc]init];
-    self.textlable.frame = CGRectMake(40, 0,self.bounds.size.width - 40, self.bounds.size.height);
-    _textfield = [[UITextField alloc]initWithFrame:CGRectMake(40, 0,self.bounds.size.width - 40, self.bounds.size.height)];
+    self.textlable.frame = CGRectMake(16, 0,self.bounds.size.width - 0, self.bounds.size.height);
+    [_textlable setTitleColor:[UIColor lightGrayColor] forState:UIControlStateNormal];
+
+    
+    _textfield = [[UITextField alloc]initWithFrame:CGRectMake(16, 0,self.bounds.size.width - 0, self.bounds.size.height)];
     [self addSubview:self.textlable];
     [self addSubview:_textfield];
     
-    _textfield.hidden = true;
-    [self.textLabel setTextColor: [UIColor blueColor]];
+    //_textfield.hidden = true;
+    [self.textLabel setTextColor: [UIColor blackColor]];
     _textfield.placeholder = @"项目名称";
     _textfield.delegate = self;
+    [_textfield setTextColor:[UIColor lightGrayColor]];
+    
+    
+    _bottomLine = [[UILabel alloc]initWithFrame:CGRectMake(self.bounds.origin.x + 0, self.bounds.origin.y + self.bounds.size.height - 1, self.bounds.size.width + 50, 1)];
+    _bottomLine.backgroundColor = [UIColor lightGrayColor];
+    [self addSubview:_bottomLine];
+    
+    _textfield.textAlignment = UITextAlignmentLeft;
+     [_textfield setFont: [UIFont fontWithName:@"fangsong" size: 17.0f]] ;
+
     
     //button长按事件
     UILongPressGestureRecognizer *longPress = [[UILongPressGestureRecognizer alloc] initWithTarget:self action:@selector(btnLong:)];
