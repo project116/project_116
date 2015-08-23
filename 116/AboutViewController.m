@@ -161,8 +161,21 @@
     [[self scrollView] addConstraint:bottom];
 }
 
+- (void)goBack {
+    [self performSegueWithIdentifier:@"About2Main" sender:nil];
+}
+
+- (void)initNavigationBar {
+
+    UIBarButtonItem* leftButton = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"back-normal.png"] style:UIBarButtonItemStylePlain target:self action:@selector(goBack)];
+    [leftButton setImage:[UIImage imageNamed:@"back-normal.png"]];
+    [leftButton setTintColor:[UIColor blackColor]];
+    self.navigationItem.leftBarButtonItem = leftButton;
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.view.frame = CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.width, [UIScreen mainScreen].bounds.size.height);
     // Do any additional setup after loading the view.
     
     NSArray *familyNames = [UIFont familyNames];
@@ -174,8 +187,8 @@
         }
     }
     
-    [[self navigationController] setNavigationBarHidden:YES];
-    
+    //[[self navigationController] setNavigationBarHidden:YES];
+    [self initNavigationBar];
     [self initControlFont];
     [self initDesignTeam];
     [self initDevTeam];
