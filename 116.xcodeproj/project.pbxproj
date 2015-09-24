@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		37A9AECA1B941E3600259D60 /* info-normal@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 37A9AEC91B941E3600259D60 /* info-normal@2x.png */; };
+		37A9AECE1BA6C2E900259D60 /* again-normal@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 37A9AECC1BA6C2E900259D60 /* again-normal@2x.png */; };
+		37A9AECF1BA6C2E900259D60 /* again-press@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 37A9AECD1BA6C2E900259D60 /* again-press@2x.png */; };
+		37BE649C1BA95650001FD007 /* NSString+VerticalNSString.m in Sources */ = {isa = PBXBuildFile; fileRef = 37BE649B1BA95650001FD007 /* NSString+VerticalNSString.m */; };
 		69043E411B652FB400F85506 /* back-normal@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 69043E3F1B652FB400F85506 /* back-normal@2x.png */; };
 		69043E421B652FB400F85506 /* back-press@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 69043E401B652FB400F85506 /* back-press@2x.png */; };
 		6953C94D1B5FF9C800E25D3B /* about_logo.png in Resources */ = {isa = PBXBuildFile; fileRef = 6953C94A1B5FF9C800E25D3B /* about_logo.png */; };
@@ -76,6 +80,11 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		37A9AEC91B941E3600259D60 /* info-normal@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "info-normal@2x.png"; path = "Resource/Image/main/info-normal@2x.png"; sourceTree = "<group>"; };
+		37A9AECC1BA6C2E900259D60 /* again-normal@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "again-normal@2x.png"; path = "Resource/Image/Result/again-normal@2x.png"; sourceTree = "<group>"; };
+		37A9AECD1BA6C2E900259D60 /* again-press@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "again-press@2x.png"; path = "Resource/Image/Result/again-press@2x.png"; sourceTree = "<group>"; };
+		37BE649A1BA95650001FD007 /* NSString+VerticalNSString.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+VerticalNSString.h"; sourceTree = "<group>"; };
+		37BE649B1BA95650001FD007 /* NSString+VerticalNSString.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+VerticalNSString.m"; sourceTree = "<group>"; };
 		69043E3F1B652FB400F85506 /* back-normal@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "back-normal@2x.png"; path = "Resource/Image/main/back-normal@2x.png"; sourceTree = "<group>"; };
 		69043E401B652FB400F85506 /* back-press@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "back-press@2x.png"; path = "Resource/Image/main/back-press@2x.png"; sourceTree = "<group>"; };
 		6953C94A1B5FF9C800E25D3B /* about_logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = about_logo.png; path = Resource/Image/about/about_logo.png; sourceTree = "<group>"; };
@@ -186,6 +195,24 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		37A9AECB1BA6C27E00259D60 /* Result */ = {
+			isa = PBXGroup;
+			children = (
+				37A9AECC1BA6C2E900259D60 /* again-normal@2x.png */,
+				37A9AECD1BA6C2E900259D60 /* again-press@2x.png */,
+			);
+			name = Result;
+			sourceTree = "<group>";
+		};
+		37BE64951BA950F1001FD007 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				37BE649A1BA95650001FD007 /* NSString+VerticalNSString.h */,
+				37BE649B1BA95650001FD007 /* NSString+VerticalNSString.m */,
+			);
+			name = Utils;
+			sourceTree = "<group>";
+		};
 		6953C9481B5FF9AF00E25D3B /* about */ = {
 			isa = PBXGroup;
 			children = (
@@ -199,6 +226,7 @@
 		6953C9491B5FF9B600E25D3B /* main */ = {
 			isa = PBXGroup;
 			children = (
+				37A9AEC91B941E3600259D60 /* info-normal@2x.png */,
 				69043E3F1B652FB400F85506 /* back-normal@2x.png */,
 				69043E401B652FB400F85506 /* back-press@2x.png */,
 				6953C9501B5FF9E100E25D3B /* bg@2x.png */,
@@ -227,6 +255,7 @@
 		69BCE6581B5A61FF0072FB68 /* Image */ = {
 			isa = PBXGroup;
 			children = (
+				37A9AECB1BA6C27E00259D60 /* Result */,
 				6953C9491B5FF9B600E25D3B /* main */,
 				6953C9481B5FF9AF00E25D3B /* about */,
 			);
@@ -271,6 +300,7 @@
 		E13993441A4971F8008E3B56 /* 116 */ = {
 			isa = PBXGroup;
 			children = (
+				37BE64951BA950F1001FD007 /* Utils */,
 				69BCE6571B5A61F80072FB68 /* Resource */,
 				E14262821ACD378300BFD16E /* Scene */,
 				E142627E1ACD133800BFD16E /* Utils */,
@@ -343,10 +373,10 @@
 				E1A2397F1ABFDB8A005A038A /* ResultViewController.m */,
 				E13993E91A499D4B008E3B56 /* MainViewController.h */,
 				E13993EA1A499D4B008E3B56 /* MainViewController.m */,
+				E13993D31A499319008E3B56 /* ItemTableViewController.m */,
 				E13993CF1A4992FD008E3B56 /* ProjectViewerControllerTableViewController.h */,
 				E13993D01A4992FD008E3B56 /* ProjectViewerControllerTableViewController.m */,
 				E13993D21A499319008E3B56 /* ItemTableViewController.h */,
-				E13993D31A499319008E3B56 /* ItemTableViewController.m */,
 				E13993E61A4997E3008E3B56 /* AboutViewController.h */,
 				E13993E71A4997E3008E3B56 /* AboutViewController.m */,
 			);
@@ -503,12 +533,15 @@
 				E1E4F3B71B77480B00C1FE7B /* dangqianxiangmu@2x.png in Resources */,
 				E1E4F3B61B77480B00C1FE7B /* bg@2x.png in Resources */,
 				E1A2398F1ABFF5CE005A038A /* Shader.vsh in Resources */,
+				37A9AECF1BA6C2E900259D60 /* again-press@2x.png in Resources */,
 				6953C94F1B5FF9C800E25D3B /* about_studio.png in Resources */,
 				E1E4F3B91B77480B00C1FE7B /* list-normal@2x.png in Resources */,
+				37A9AECA1B941E3600259D60 /* info-normal@2x.png in Resources */,
 				6953C9511B5FF9E100E25D3B /* bg@2x.png in Resources */,
 				E1E4F3BC1B77480B00C1FE7B /* yao-icon@2x.png in Resources */,
 				E1E4F3BB1B77480B00C1FE7B /* xiangmu@2x.png in Resources */,
 				E13993561A4971F8008E3B56 /* LaunchScreen.xib in Resources */,
+				37A9AECE1BA6C2E900259D60 /* again-normal@2x.png in Resources */,
 				E1E4F3CD1B78619500C1FE7B /* back-normal@2x.png in Resources */,
 				6953C94D1B5FF9C800E25D3B /* about_logo.png in Resources */,
 				E1E4F3C51B77537A00C1FE7B /* liukai.ttf in Resources */,
@@ -546,6 +579,7 @@
 				E193A3F51A4D3ECC009B964E /* UITableViewCell_ContainRemover2.m in Sources */,
 				E12080221AD64DCD005643AC /* StepsProjectName.m in Sources */,
 				E13993811A4986DA008E3B56 /* UITableViewCell_ContainRemover_116Item.m in Sources */,
+				37BE649C1BA95650001FD007 /* NSString+VerticalNSString.m in Sources */,
 				E139938D1A498A33008E3B56 /* DataCenter116.m in Sources */,
 				E1E4F3CB1B77A60C00C1FE7B /* UINavigationBar+customBar.m in Sources */,
 				E13993481A4971F8008E3B56 /* main.m in Sources */,

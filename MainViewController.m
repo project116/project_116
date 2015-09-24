@@ -11,6 +11,8 @@
 #import "SMPageControl.h"
 #import "MainProjectView.h"
 #import "UINavigationBar+customBar.h"
+#import "NSString+VerticalNSString.h"
+
 @interface MainViewController ()
 
 @property (strong, nonatomic) UIScrollView *projectScrollView;
@@ -26,7 +28,6 @@
     
     UIBarButtonItem *temporaryBarButtonItem = [[UIBarButtonItem alloc] init];
     temporaryBarButtonItem.title = @"主页";
-    
 
     self.navigationItem.backBarButtonItem = temporaryBarButtonItem;
     [self.navigationController.navigationBar setBackgroundImage:[[UIImage alloc] init] forBarMetrics:UIBarMetricsDefault];
@@ -155,6 +156,89 @@
      [_projectPageControl updateCurrentPageDisplay] ;
 }
 
+- (IBAction)clickSelect:(id)sender {
+    [self.projectScrollView setHidden:YES];
+    [self createLabel4Result];
+}
+
+- (UILabel*)createLabel4Result {
+    UILabel *result = nil;
+    
+    result = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 100, 45)];
+
+    if (result != nil) {
+        
+        [result setTranslatesAutoresizingMaskIntoConstraints:NO];
+        [self.view addSubview:result];
+        
+        [result setBackgroundColor:[UIColor redColor]];
+        
+        NSLayoutConstraint *constraintTop =
+        [NSLayoutConstraint constraintWithItem:result attribute:NSLayoutAttributeTop relatedBy:NSLayoutRelationEqual toItem:self.topLayoutGuide attribute:NSLayoutAttributeBaseline multiplier:1.f constant:35.f];
+        
+        NSLayoutConstraint *constraintWidth =
+        [NSLayoutConstraint constraintWithItem:result attribute:NSLayoutAttributeWidth relatedBy:NSLayoutRelationEqual toItem:nil attribute:NSLayoutAttributeNotAnAttribute multiplier:1.f constant:45];
+        
+        NSLayoutConstraint *constraintHeight =
+        [NSLayoutConstraint constraintWithItem:result attribute:NSLayoutAttributeHeight relatedBy:NSLayoutRelationEqual toItem:nil attribute:NSLayoutAttributeNotAnAttribute multiplier:1.f constant:300];
+        
+        NSLayoutConstraint *constraintCenterY =
+        [NSLayoutConstraint constraintWithItem:result attribute:NSLayoutAttributeCenterX relatedBy:NSLayoutRelationEqual toItem:self.view attribute:NSLayoutAttributeCenterX multiplier:1.f constant:0.f];
+        
+        
+        [result addConstraint:constraintWidth];
+        [result addConstraint:constraintHeight];
+        [self.view addConstraint:constraintTop];
+        [self.view addConstraint:constraintCenterY];
+        
+        NSString *text = @"中华人民共和国发生的发给过";
+        
+        /*if (text.length > 10) {
+            text = [text substringWithRange:NSMakeRange(0, 10)];
+        }*/
+        
+        NSString* verticalText = [text makeVerticalOutString];
+        [self setResultLabel:result text:verticalText src:text];
+        [result setNumberOfLines:10];
+        [result setTextAlignment:NSTextAlignmentCenter];
+
+    }
+    
+    return  result;
+}
+
+- (void) setResultLabel:(UILabel*) label text: (NSString*) text src:(NSString*) src {
+    if (nil != label) {
+        static NSUInteger maxFontSize = 50;
+        static NSUInteger minFontSize = 28;
+        static NSUInteger maxCharacters = 10;
+        NSUInteger minLineSpace = 0;//(300 - maxCharacters * minFontSize) / (maxCharacters - 1);
+        
+        if (src.length >= 10) {
+            NSMutableAttributedString *attributedStr = [[NSMutableAttributedString alloc]initWithString:text];
+            NSMutableParagraphStyle* paragraphStryle = [[NSMutableParagraphStyle alloc]init];
+            [paragraphStryle setParagraphSpacing:minLineSpace];
+            [paragraphStryle setHeadIndent:0.f];
+            [paragraphStryle setFirstLineHeadIndent:0.f];
+            [paragraphStryle setParagraphSpacingBefore:0.f];
+            [paragraphStryle setLineSpacing:0.f];
+            /*
+            
+            [attributedStr addAttribute:NSParagraphStyleAttributeName value:paragraphStryle range:NSMakeRange(0, text.length)];*/
+            [label setAttributedText:attributedStr];
+            
+            [label setFont: [UIFont fontWithName:@"FZSuXinShiLiuKaiS-R-GB" size: 28.0f]];
+        }
+        else {
+            [label setText:text];
+            [label setFont: [UIFont fontWithName:@"FZSuXinShiLiuKaiS-R-GB" size: 120.0f]];
+            [label setAdjustsFontSizeToFitWidth:YES];
+        }
+        
+    }
+}
 
 
 @end
+
+

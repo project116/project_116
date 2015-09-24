@@ -17,11 +17,11 @@
 
 
 - (void)initControlFont {
-    self.projectName.font = [UIFont fontWithName:@"FangSong_GB2312" size:20];
+    self.projectName.font = [UIFont fontWithName:@"FangSong" size:10];
     
-    self.teamAuthor.font = [UIFont fontWithName:@"fzsxslkjw--gb1-0" size:36];
+    self.teamAuthor.font = [UIFont fontWithName:@"fzsxslkjw--gb1-0" size:18];
     
-    UIFont* font4Team = [UIFont fontWithName:@"fzsxslkjw--gb1-0" size:30];
+    UIFont* font4Team = [UIFont fontWithName:@"fzsxslkjw--gb1-0" size:15];
     
     self.designTeam.font = font4Team;
     self.devTeam.font = font4Team;
@@ -41,7 +41,7 @@
         // 必须制定，默认是Autoresizing
         [result setTranslatesAutoresizingMaskIntoConstraints:NO];
         
-        UIFont *font = [UIFont fontWithName:@"Palatino-Roman" size:26.0];
+        UIFont *font = [UIFont fontWithName:@"Palatino-Roman" size:13.0];
         CGSize size = [_name sizeWithFont:font constrainedToSize:CGSizeMake(175.0f, 2000.0f) lineBreakMode:UILineBreakModeWordWrap];
         
         [result setFont:font];
@@ -59,7 +59,7 @@
     NSArray *designTeam = [[NSArray alloc]initWithObjects:@"Cczhang", @"Emmadai", @"Estherzhang", @"Lillianli", @"Sinkinwang", @"Vigarwang", nil];
     
     NSUInteger calculator = 0;
-    NSUInteger defaultVerticalSpace = 7;
+    NSUInteger defaultVerticalSpace = 3.5;
     NSUInteger firstVerticalSpace = 0;
     NSUInteger designMemberViewActualHeight = 0;
     
@@ -103,7 +103,7 @@
     
 
     NSUInteger calculator = 0;
-    NSUInteger defaultVerticalSpace = 7;
+    NSUInteger defaultVerticalSpace = 3.5;
     NSUInteger firstVerticalSpace = 0;
     NSUInteger designMemberViewActualHeight = 0;
     
@@ -136,7 +136,7 @@
     [[self devMemberView] addConstraint:constraintBottomSpace];
    
     NSLayoutConstraint *constraintTopSpace =
-    [NSLayoutConstraint constraintWithItem:self.img_dev_studio attribute:NSLayoutAttributeTop relatedBy:NSLayoutRelationEqual toItem:self.devMemberView attribute:NSLayoutAttributeBottom multiplier:1.f constant:30.f];
+    [NSLayoutConstraint constraintWithItem:self.img_dev_studio attribute:NSLayoutAttributeTop relatedBy:NSLayoutRelationEqual toItem:self.devMemberView attribute:NSLayoutAttributeBottom multiplier:1.f constant:15.f];
     
     [[self scrollContentView] addConstraint:constraintTopSpace];
   

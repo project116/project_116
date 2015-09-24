@@ -10,4 +10,6 @@
 
 @interface NSString (VerticalNSString)
 
+-(NSString*) makeVerticalOutString;
+
 @end

@@ -9,6 +9,7 @@
 #import "ResultViewController.h"
 #import "DataCenter116.h"
 #import <CoreText/CoreText.h>
+#import "SMPageControl.h"
 #import "ResultView.h"
 #import "RenderScene.h"
 @interface ResultViewController ()
@@ -16,66 +17,46 @@
 @property (weak, nonatomic) IBOutlet GLKView *glkview;
 @property (strong, nonatomic) EAGLContext * context;
 @property (strong, nonatomic) RenderScene* renderScene;
+@property (weak, nonatomic) IBOutlet SMPageControl *projectPageControl;
 @property (strong, nonatomic) UILabel *ResultLabel;
 @end
 
 @implementation ResultViewController
 
+- (void)goToMain {
+    [self performSegueWithIdentifier:@"Result2Main" sender:self];
+}
+
+- (void)gotoEdit {
+    [self performSegueWithIdentifier:@"Result2Table" sender:self];
+}
+
+- (void)initPageControl {
+    [self.projectPageControl setPageIndicatorImage:[UIImage imageNamed:@"xiangmu"]];
+    [self.projectPageControl setCurrentPageIndicatorImage:[UIImage imageNamed:@"dangqianxiangmu"]];
+    self.projectPageControl.backgroundColor = [UIColor clearColor];
+    self.projectPageControl.currentPageIndicatorTintColor = [UIColor redColor];
+    self.projectPageControl.pageIndicatorTintColor = [UIColor yellowColor];
+    self.projectPageControl.hidesForSinglePage = YES;
+    self.projectPageControl.userInteractionEnabled = YES;
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
-//    [_tryAgainButton removeFromSuperview];
-    _ResultLabel = [[UILabel alloc]initWithFrame:CGRectMake(100, 200, [UIScreen mainScreen].bounds.size.width -100, [UIScreen mainScreen].bounds.size.height - 400) ];
     
-    [_ResultLabel setFrame:CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.width, [UIScreen mainScreen].bounds.size.height)];
-    _ResultLabel.backgroundColor  = [UIColor whiteColor];
-    [_ResultLabel setTextAlignment: UITextAlignmentCenter] ;
-    [_ResultLabel setFont: [UIFont boldSystemFontOfSize: 100.0f]] ;
-    [self.view addSubview:_ResultLabel];
+    UIBarButtonItem* leftButonItem =
+        [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"back-normal@2x.png"] style:UIBarButtonItemStylePlain target:self action:@selector(goToMain)];
     
-    // Do any additional setup after loading the view.
-    Project116 * curproj = [[DataCenter116 GetInstance]GetCurrentProject];
-    int itemcount = curproj.items.count;
-    unsigned int random = arc4random();
-    int value = random % itemcount;
-    int value1 = (random+1) % itemcount;
-    NSString * string = [[DataCenter116 GetInstance]GetItemNameAt:value atProject:curproj];
-    NSString * string1 = [[DataCenter116 GetInstance]GetItemNameAt:value1 atProject:curproj];
-    _ResultLabel.text = [string isEqualToString:@""]?string1:string ;
-    _ResultLabel.textColor = [UIColor blackColor];
+    UIBarButtonItem* rightButtonItem =
+    [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"info-normal@2x.png"] style:UIBarButtonItemStylePlain target:self action:@selector(gotoEdit)];
     
+    [leftButonItem setTintColor:[UIColor blackColor]];
+    [rightButtonItem setTintColor:[UIColor blackColor]];
     
+    [self.navigationItem setLeftBarButtonItem:leftButonItem];
+    [self.navigationItem setRightBarButtonItem:rightButtonItem];
     
-    UIButton * _tryAgainButton = [[UIButton alloc]initWithFrame:CGRectMake(100, [UIScreen mainScreen].bounds.size.height - 200, [UIScreen mainScreen].bounds.size.width -200, 100) ];
-    
-    [_tryAgainButton setTitleColor: [UIColor blueColor] forState: UIControlStateNormal] ;
-    [_tryAgainButton setTitle:@"再试一次" forState:UIControlStateNormal];
-    [self.view addSubview:_tryAgainButton];
-    
-    _tryAgainButton.userInteractionEnabled = YES;
-    [_tryAgainButton addTarget: self action: @selector(tryAgainClicked:) forControlEvents: UIControlEventTouchDown] ;
-    
-    return;
-    
-    
-    
-    self.context = [[EAGLContext alloc] initWithAPI:kEAGLRenderingAPIOpenGLES2];
-    _glkview = [[GLKView alloc]initWithFrame:CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.width, [UIScreen mainScreen].bounds.size.height)];
-    _glkview.context = self.context;
-    [self.view addSubview:_glkview];
-    //    self.preferredFramesPerSecond = 60;
-    
-    //avoid UIKit freeze
-    //http://stackoverflow.com/questions/10080932/glkviewcontrollerdelegate-getting-blocked
-    _glkview.enableSetNeedsDisplay = YES;
-    
-    
-    //view.contentScaleFactor = [UIScreen mainScreen].scale;
-    //self.preferredFramesPerSecond = 0;
-    displayLink = [CADisplayLink displayLinkWithTarget:self selector:@selector(render:)];
-    [displayLink addToRunLoop:[NSRunLoop currentRunLoop] forMode:NSRunLoopCommonModes];
-    displayLink.frameInterval = 5;
-    
-    _renderScene = [[RenderScene alloc]initWithContext:self.context];
+    [self.view setBackgroundColor:[UIColor colorWithPatternImage:[UIImage imageNamed:@"bg@2x.png"]]];
 }
 
 - (void)viewDidAppear:(BOOL)animated
