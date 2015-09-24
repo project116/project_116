@@ -14,7 +14,7 @@
                         <viewControllerLayoutGuide type="bottom" id="Oe9-pr-V4e"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="HQi-Bb-suK">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="900"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="X8a-qy-2TT" customClass="SMPageControl">
@@ -66,7 +66,7 @@
             <objects>
                 <tableViewController id="opT-ku-A6l" customClass="ProjectViewerControllerTableViewController" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="CJx-M4-z5X">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="900"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
@@ -415,7 +415,7 @@
         <image name="start-normal.png" width="83" height="110"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="9p2-z1-xxw"/>
+        <segue reference="BtR-Mi-FJM"/>
         <segue reference="L5D-RH-Jlz"/>
     </inferredMetricsTieBreakers>
 </document>

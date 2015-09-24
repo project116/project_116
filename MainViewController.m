@@ -17,6 +17,7 @@
 
 @property (strong, nonatomic) UIScrollView *projectScrollView;
 @property (weak, nonatomic) IBOutlet SMPageControl *projectPageControl;
+@property (strong, nonatomic) UILabel *resultLabel;
 @end
 
 @implementation MainViewController
@@ -164,14 +165,16 @@
 - (UILabel*)createLabel4Result {
     UILabel *result = nil;
     
-    result = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 100, 45)];
+    if (self.resultLabel == nil) {
+         self.resultLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 100, 45)];
+    }
+    
+    result = self.resultLabel;
 
     if (result != nil) {
         
         [result setTranslatesAutoresizingMaskIntoConstraints:NO];
         [self.view addSubview:result];
-        
-        [result setBackgroundColor:[UIColor redColor]];
         
         NSLayoutConstraint *constraintTop =
         [NSLayoutConstraint constraintWithItem:result attribute:NSLayoutAttributeTop relatedBy:NSLayoutRelationEqual toItem:self.topLayoutGuide attribute:NSLayoutAttributeBaseline multiplier:1.f constant:35.f];
@@ -180,8 +183,8 @@
         [NSLayoutConstraint constraintWithItem:result attribute:NSLayoutAttributeWidth relatedBy:NSLayoutRelationEqual toItem:nil attribute:NSLayoutAttributeNotAnAttribute multiplier:1.f constant:45];
         
         NSLayoutConstraint *constraintHeight =
-        [NSLayoutConstraint constraintWithItem:result attribute:NSLayoutAttributeHeight relatedBy:NSLayoutRelationEqual toItem:nil attribute:NSLayoutAttributeNotAnAttribute multiplier:1.f constant:300];
-        
+        [NSLayoutConstraint constraintWithItem:result attribute:NSLayoutAttributeHeight relatedBy:NSLayoutRelationEqual toItem:nil attribute:NSLayoutAttributeNotAnAttribute multiplier:1.f constant:310];
+
         NSLayoutConstraint *constraintCenterY =
         [NSLayoutConstraint constraintWithItem:result attribute:NSLayoutAttributeCenterX relatedBy:NSLayoutRelationEqual toItem:self.view attribute:NSLayoutAttributeCenterX multiplier:1.f constant:0.f];
         
@@ -191,15 +194,15 @@
         [self.view addConstraint:constraintTop];
         [self.view addConstraint:constraintCenterY];
         
-        NSString *text = @"中华人民共和国发生的发给过";
+        NSString *text = @"中华人民共和国万岁万万岁";
         
-        /*if (text.length > 10) {
+        if (text.length > 10) {
             text = [text substringWithRange:NSMakeRange(0, 10)];
-        }*/
+        }
         
         NSString* verticalText = [text makeVerticalOutString];
         [self setResultLabel:result text:verticalText src:text];
-        [result setNumberOfLines:10];
+        [result setNumberOfLines:0];
         [result setTextAlignment:NSTextAlignmentCenter];
 
     }
@@ -209,25 +212,21 @@
 
 - (void) setResultLabel:(UILabel*) label text: (NSString*) text src:(NSString*) src {
     if (nil != label) {
-        static NSUInteger maxFontSize = 50;
-        static NSUInteger minFontSize = 28;
-        static NSUInteger maxCharacters = 10;
-        NSUInteger minLineSpace = 0;//(300 - maxCharacters * minFontSize) / (maxCharacters - 1);
-        
+    
         if (src.length >= 10) {
-            NSMutableAttributedString *attributedStr = [[NSMutableAttributedString alloc]initWithString:text];
             NSMutableParagraphStyle* paragraphStryle = [[NSMutableParagraphStyle alloc]init];
-            [paragraphStryle setParagraphSpacing:minLineSpace];
-            [paragraphStryle setHeadIndent:0.f];
-            [paragraphStryle setFirstLineHeadIndent:0.f];
-            [paragraphStryle setParagraphSpacingBefore:0.f];
-            [paragraphStryle setLineSpacing:0.f];
-            /*
+            NSMutableDictionary *dictionary = @{NSParagraphStyleAttributeName:paragraphStryle};
+            [paragraphStryle setMaximumLineHeight:50];
+            [paragraphStryle setMinimumLineHeight:28];
+            [paragraphStryle setAlignment:NSTextAlignmentJustified];
+            [paragraphStryle setParagraphSpacingBefore:0.0];
+            [paragraphStryle setLineSpacing:0.0];
+            [paragraphStryle setParagraphSpacing:0.0];
             
-            [attributedStr addAttribute:NSParagraphStyleAttributeName value:paragraphStryle range:NSMakeRange(0, text.length)];*/
-            [label setAttributedText:attributedStr];
-            
+            NSMutableAttributedString *attributedStr = [[NSMutableAttributedString alloc]initWithString:text attributes:dictionary];
+
             [label setFont: [UIFont fontWithName:@"FZSuXinShiLiuKaiS-R-GB" size: 28.0f]];
+            [label setAttributedText:attributedStr];
         }
         else {
             [label setText:text];
