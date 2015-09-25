@@ -30,12 +30,26 @@
                                     <action selector="clickSelect:" destination="M9Q-xc-xKK" eventType="touchUpInside" id="om8-F0-gXU"/>
                                 </connections>
                             </button>
+                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GJO-kg-WE1">
+                                <rect key="frame" x="244" y="369" width="83" height="110"/>
+                                <state key="normal" image="again-normal.png">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="clickSelect:" destination="M9Q-xc-xKK" eventType="touchUpInside" id="scB-lp-Axw"/>
+                                    <action selector="onTryAgain:" destination="M9Q-xc-xKK" eventType="touchUpInside" id="Ow9-kv-vs3"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="X8a-qy-2TT" firstAttribute="leading" secondItem="HQi-Bb-suK" secondAttribute="leadingMargin" constant="134" id="4fs-sI-I6S"/>
+                            <constraint firstItem="jSJ-dA-eUz" firstAttribute="width" secondItem="GJO-kg-WE1" secondAttribute="width" id="BKA-K5-qZa"/>
                             <constraint firstItem="jSJ-dA-eUz" firstAttribute="leading" secondItem="HQi-Bb-suK" secondAttribute="leadingMargin" constant="116" id="ExR-vN-dRV"/>
+                            <constraint firstItem="jSJ-dA-eUz" firstAttribute="top" secondItem="GJO-kg-WE1" secondAttribute="top" id="G3k-04-L1v"/>
                             <constraint firstAttribute="trailingMargin" secondItem="jSJ-dA-eUz" secondAttribute="trailing" constant="116" id="eFu-Ht-bZQ"/>
+                            <constraint firstItem="jSJ-dA-eUz" firstAttribute="height" secondItem="GJO-kg-WE1" secondAttribute="height" id="fek-GN-R5F"/>
+                            <constraint firstItem="jSJ-dA-eUz" firstAttribute="leading" secondItem="GJO-kg-WE1" secondAttribute="leading" id="sSR-wc-0iv"/>
                             <constraint firstAttribute="trailingMargin" secondItem="X8a-qy-2TT" secondAttribute="trailing" constant="134" id="yrw-fn-LAx"/>
                         </constraints>
                     </view>
@@ -54,6 +68,8 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="btnStart" destination="jSJ-dA-eUz" id="M7L-hb-9Zi"/>
+                        <outlet property="btnTryAgain" destination="GJO-kg-WE1" id="ibf-P1-NXG"/>
                         <outlet property="projectPageControl" destination="X8a-qy-2TT" id="LWo-8x-Hfv"/>
                     </connections>
                 </viewController>

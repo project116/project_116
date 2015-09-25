@@ -17,7 +17,10 @@
 
 @property (strong, nonatomic) UIScrollView *projectScrollView;
 @property (weak, nonatomic) IBOutlet SMPageControl *projectPageControl;
+@property (weak, nonatomic) IBOutlet UIButton *btnStart;
 @property (strong, nonatomic) UILabel *resultLabel;
+@property (weak, nonatomic) IBOutlet UIButton *btnTryAgain;
+
 @end
 
 @implementation MainViewController
@@ -52,7 +55,6 @@
     _projectScrollView.delegate = self;
     _projectScrollView.showsVerticalScrollIndicator = NO;
     _projectScrollView.showsHorizontalScrollIndicator = NO;
-   
     
     
     [_projectPageControl setPageIndicatorImage:[UIImage imageNamed:@"xiangmu"]];
@@ -158,11 +160,32 @@
 }
 
 - (IBAction)clickSelect:(id)sender {
-    [self.projectScrollView setHidden:YES];
-    [self createLabel4Result];
+    [self switchMainResult:YES];
+    [self createLabel4Result:@"中华人名共和国万岁万万岁"];
 }
 
-- (UILabel*)createLabel4Result {
+- (IBAction)onTryAgain:(id)sender {
+    [self switchMainResult:NO];
+}
+
+- (void)switchMainResult:(Boolean)main2result {
+    
+    if (YES == main2result) {
+        [self.projectScrollView setHidden:YES];
+        [self.btnStart setHidden:YES];
+        [self.resultLabel setHidden:NO];
+        [self.btnTryAgain setHidden:NO];
+    }
+    else {
+        [self.projectScrollView setHidden:NO];
+        [self.btnStart setHidden:NO];
+        [self.resultLabel setHidden:YES];
+        [self.btnTryAgain setHidden:YES];
+
+    }
+}
+
+- (UILabel*)createLabel4Result:(NSString*)str {
     UILabel *result = nil;
     
     if (self.resultLabel == nil) {
@@ -194,7 +217,7 @@
         [self.view addConstraint:constraintTop];
         [self.view addConstraint:constraintCenterY];
         
-        NSString *text = @"中华人民共和国万岁万万岁";
+        NSString *text = str;
         
         if (text.length > 10) {
             text = [text substringWithRange:NSMakeRange(0, 10)];
