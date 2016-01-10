@@ -123,6 +123,7 @@
     UIImage* tmp, *tmp1, *tmp2, *tmp3;
     tmp = stringImageBackUp;
     [ImageArray addObject:tmp];
+    /*
     tmp1 = [Utils116 GetgaussianBlurImage:tmp];
     tmp1 = [Utils116 GetgaussianBlurImage:tmp1];
     tmp1 = [Utils116 GetgaussianBlurImage:tmp1];
@@ -141,6 +142,7 @@
     tmp3 = [Utils116 GetgaussianBlurImage:tmp3];
     tmp3 = [Utils116 GetgaussianBlurImage:tmp3];
     tmp3 = [Utils116 GetgaussianBlurImage:tmp3];
+     */
     [ImageArray addObject:tmp3];
 
 }

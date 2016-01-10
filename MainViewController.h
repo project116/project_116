@@ -7,7 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "ItemLayer.h"
+#import "ItemLayerEx.h"
 
 @interface MainViewController : UIViewController<UIScrollViewDelegate>
+
+@property (nonatomic, strong) CItemLayer* itemLayer;
+@property (nonatomic, strong) CItemLayerEx* itemLayerEx;
 
 @end

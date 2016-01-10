@@ -11,7 +11,10 @@
 
 @interface Utils116 : NSObject
 
-+(UIImage*) GetgaussianBlurImage:(UIImage*)inputImgae;
++ (UIImage*) GetgaussianBlurImage:(UIImage*)inputImgae Radius:(float)radius;
 
-+(CGImageRef)CGImageRotatedByAngle:(CGImageRef)imgRef angle:(CGFloat)angle;
++ (CGImageRef)CGImageRotatedByAngle:(CGImageRef)imgRef angle:(CGFloat)angle;
+
++ (UIImage*)GetSnapshot:(UIView*)view;
+
 @end

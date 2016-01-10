@@ -162,7 +162,8 @@
 }
 
 - (void)goBack {
-    [self performSegueWithIdentifier:@"About2Main" sender:nil];
+    //[self performSegueWithIdentifier:@"About2Main" sender:nil];
+    [self.navigationController popViewControllerAnimated:YES];
 }
 
 - (void)initNavigationBar {

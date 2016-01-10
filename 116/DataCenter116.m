@@ -13,7 +13,6 @@
 @interface DataCenter116 ()
 
 @property (strong, nonatomic) NSMutableArray *projectarray;
-@property (weak, nonatomic) Project116* currentProj;
 @end
 
 @implementation DataCenter116
@@ -73,7 +72,12 @@ static DataCenter116 * instance;
 
 - (void)SetCurrentProject:(NSUInteger)projectIndex
 {
-    _currentProj = [_projectarray objectAtIndex:projectIndex];
+    if (projectIndex >= 0 && projectIndex < _projectarray.count) {
+        if ([_projectarray objectAtIndex:projectIndex] != self.currentProj) {
+            //上面的判断是为了防止多次重复设置同一个index，虽然_currentProj实际没有变化，但是KVO还是能收到通知的...
+            [self setCurrentProj:[_projectarray objectAtIndex:projectIndex]];
+        }
+    }
 }
 
 - (Project116 * )GetCurrentProject

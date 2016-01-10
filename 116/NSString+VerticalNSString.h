@@ -10,6 +10,11 @@
 
 @interface NSString (VerticalNSString)
 
--(NSString*) makeVerticalOutString;
+- (NSString*) makeVerticalOutString;
+
++ (BOOL)isChinese:(NSString*)character;
+
+- (NSArray*)spliteChineseEnglish:(NSString*)string;
+
 
 @end

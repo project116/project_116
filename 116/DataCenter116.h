@@ -30,4 +30,5 @@
 - (Project116 *)GetCurrentProject;
 
 @property(nonatomic) sqlite3 *db;
+@property (weak, nonatomic) Project116* currentProj;
 @end

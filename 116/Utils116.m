@@ -8,11 +8,26 @@
 
 #import "Utils116.h"
 #import <Accelerate/Accelerate.h>
+#import "NSString+VerticalNSString.h"
 
 @implementation Utils116
 
-+(UIImage*) GetgaussianBlurImage:(UIImage*)inputImgae
++(UIImage*) GetgaussianBlurImage:(UIImage*)inputImgae Radius:(float)radius
 {
+    CIFilter *gaussianBlurFilter = [CIFilter filterWithName:@"CIGaussianBlur"];
+    [gaussianBlurFilter setDefaults];
+    CIImage *inputImage = [CIImage imageWithCGImage:[inputImgae CGImage]];
+    [gaussianBlurFilter setValue:inputImage forKey:kCIInputImageKey];
+    [gaussianBlurFilter setValue:[[NSNumber alloc]initWithFloat:radius] forKey:kCIInputRadiusKey];
+    
+    CIImage *outputImage = [gaussianBlurFilter outputImage];
+    CIContext *context   = [CIContext contextWithOptions:nil];
+    CGImageRef cgimg     = [context createCGImage:outputImage fromRect:[inputImage extent]];  // note, use input image extent if you want it the same size, the output image extent is larger
+    UIImage *image       = [UIImage imageWithCGImage:cgimg];
+    CGImageRelease(cgimg);
+    
+    return  image;
+    /*
     static int16_t gaussianblur_kernel[25] = {
         1, 4, 6, 4, 1,
         4, 16, 24, 16, 4,
@@ -56,7 +71,7 @@
     CGImageRelease(blurredImageRef);
     CGContextRelease(bmContext);
     
-    return blurred;
+    return blurred;*/
 }
 
 + (CGImageRef)CGImageRotatedByAngle:(CGImageRef)imgRef angle:(CGFloat)angle
@@ -91,6 +106,19 @@
     CFRelease(bmContext);
     
     return rotatedImage;
+}
+
++ (UIImage*)GetSnapshot:(UIView*)view {
+    UIImage* image = nil;
+    
+    if (view != nil) {
+        UIGraphicsBeginImageContextWithOptions(view.frame.size, NO, 0.0);
+        [view.layer renderInContext:UIGraphicsGetCurrentContext()];
+        image = UIGraphicsGetImageFromCurrentImageContext();
+        UIGraphicsEndImageContext();
+    }
+    
+    return image;
 }
 
 @end

@@ -23,9 +23,16 @@
     if (![self.subviews containsObject:g_switcher]) {
         
         [self addSubview:g_switcher];
-        
-        g_switcher.frame = CGRectMake(self.bounds.size.width - 10, 10, 0,self.bounds.size.height);
+    
         self.textLabel.text = @"去除重复选项";
+
+        [g_switcher setTranslatesAutoresizingMaskIntoConstraints:NO];
+        NSLayoutConstraint *horConstraint = [NSLayoutConstraint constraintWithItem:g_switcher attribute:NSLayoutAttributeTrailing relatedBy:NSLayoutRelationEqual toItem:self attribute:NSLayoutAttributeTrailing multiplier:1.f constant:-30.f];
+        
+        NSLayoutConstraint *verConstraint = [NSLayoutConstraint constraintWithItem:g_switcher attribute:NSLayoutAttributeCenterY relatedBy:NSLayoutRelationEqual toItem:self attribute:NSLayoutAttributeCenterY multiplier:1.0 constant:0.f];
+        
+        [self addConstraint:horConstraint];
+        [self addConstraint:verConstraint];
     }
 }
 

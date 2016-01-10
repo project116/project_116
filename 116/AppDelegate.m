@@ -28,6 +28,8 @@
     [[UINavigationBar appearance] setBackIndicatorImage:[UIImage imageNamed:@"dangqianxiangmu"] ];
     [[UINavigationBar appearance] setBackIndicatorTransitionMaskImage:[UIImage imageNamed:@"dangqianxiangmuxiangmu"] ];
     [[UINavigationBar appearance] setTintColor:[UIColor blueColor]];
+    
+    
     return YES;
 }
 
